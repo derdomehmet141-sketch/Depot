@@ -1,4 +1,3 @@
-
 import asyncio
 import os
 from datetime import datetime, timedelta
@@ -24,7 +23,6 @@ from AloneMusic.utils.formatters import (check_duration, seconds_to_min,
                                          speed_converter)
 from AloneMusic.utils.inline.play import stream_markup
 from AloneMusic.utils.stream.autoclear import auto_clean
-from AloneMusic.utils.thumbnails import get_thumb
 from strings import get_string
 
 
@@ -411,7 +409,7 @@ class Call(PyTgCalls):
                     original_chat_id,
                     text=_["call_6"],
                 )
-            
+
             button = stream_markup(_, chat_id)
             run = await app.send_message(
                 chat_id=original_chat_id,
@@ -447,7 +445,7 @@ class Call(PyTgCalls):
                     original_chat_id,
                     text=_["call_6"],
                 )
-            
+
             button = stream_markup(_, chat_id)
             await mystic.delete()
             run = await app.send_message(
