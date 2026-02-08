@@ -1,11 +1,4 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
+
 
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
@@ -15,19 +8,28 @@ from AloneMusic.utils.database import add_served_chat
 from config import LOGGER_ID as LOG_GROUP_ID
 
 
-async def new_message(chat_id: int, message: str, reply_markup=None):
-    await app.send_message(chat_id=chat_id, text=message, reply_markup=reply_markup)
+async def yeni_mesaj(chat_id: int, mesaj: str, reply_markup=None):
+    await app.send_message(chat_id=chat_id, text=mesaj, reply_markup=reply_markup)
 
 
 @app.on_message(filters.new_chat_members)
 async def on_new_chat_members(client: Client, message: Message):
     if app.id in [user.id for user in message.new_chat_members]:
-        added_by = message.from_user.mention if message.from_user else "ᴜɴᴋɴᴏᴡɴ ᴜsᴇʀ"
-        title = message.chat.title
-        username = f"@{message.chat.username}"
+        ekleyen = message.from_user.mention if message.from_user else "Bilinmeyen Kullanıcı"
+        baslik = message.chat.title
+        kullanici_adi = f"@{message.chat.username}" if message.chat.username else "Gizli"
         chat_id = message.chat.id
-        chat_members = await client.get_chat_members_count(chat_id)
-        am = f"✫ <b><u>ɴᴇᴡ ɢʀᴏᴜᴘ</u></b> :\n\nᴄʜᴀᴛ ɪᴅ : {chat_id}\nᴄʜᴀᴛ ᴜsᴇʀɴᴀᴍᴇ : {username}\nᴄʜᴀᴛ ᴛɪᴛʟᴇ : {title}\nᴛᴏᴛᴀʟ ᴄʜᴀᴛ ᴍᴇᴍʙᴇʀꜱ : {chat_members}\n\nᴀᴅᴅᴇᴅ ʙʏ : {added_by}"
+        uye_sayisi = await client.get_chat_members_count(chat_id)
+        
+        bildirim = (
+            f"✫ <b><u>YENİ GRUP</u></b> :\n\n"
+            f"SOHBET ID : {chat_id}\n"
+            f"KULLANICI ADI : {kullanici_adi}\n"
+            f"GRUP BAŞLIĞI : {baslik}\n"
+            f"TOPLAM ÜYE : {uye_sayisi}\n\n"
+            f"EKLEYEN : {ekleyen}"
+        )
+        
         reply_markup = InlineKeyboardMarkup(
             [
                 [
@@ -39,17 +41,25 @@ async def on_new_chat_members(client: Client, message: Message):
         )
 
         await add_served_chat(chat_id)
-        await new_message(LOG_GROUP_ID, am, reply_markup)
+        await yeni_mesaj(LOG_GROUP_ID, bildirim, reply_markup)
 
 
 @app.on_message(filters.left_chat_member)
 async def on_left_chat_member(client: Client, message: Message):
     if app.id == message.left_chat_member.id:
-        remove_by = message.from_user.mention if message.from_user else "ᴜɴᴋɴᴏᴡɴ ᴜsᴇʀ"
-        title = message.chat.title
-        username = f"@{message.chat.username}"
+        cikaran = message.from_user.mention if message.from_user else "Bilinmeyen Kullanıcı"
+        baslik = message.chat.title
+        kullanici_adi = f"@{message.chat.username}" if message.chat.username else "Gizli"
         chat_id = message.chat.id
-        ambye = f"✫ <b><u>ʟᴇғᴛ ɢʀᴏᴜᴘ</u></b> :\n\nᴄʜᴀᴛ ɪᴅ : {chat_id}\nᴄʜᴀᴛ ᴜsᴇʀɴᴀᴍᴇ : {username}\nᴄʜᴀᴛ ᴛɪᴛʟᴇ : {title}\n\nʀᴇᴍᴏᴠᴇᴅ ʙʏ : {remove_by}"
+        
+        ayrilis_mesaji = (
+            f"✫ <b><u>GRUPTAN AYRILDI</u></b> :\n\n"
+            f"SOHBET ID : {chat_id}\n"
+            f"KULLANICI ADI : {kullanici_adi}\n"
+            f"GRUP BAŞLIĞI : {baslik}\n\n"
+            f"ÇIKARAN : {cikaran}"
+        )
+        
         reply_markup = InlineKeyboardMarkup(
             [
                 [
@@ -59,4 +69,4 @@ async def on_left_chat_member(client: Client, message: Message):
                 ]
             ]
         )
-        await new_message(LOG_GROUP_ID, ambye, reply_markup)
+        await yeni_mesaj(LOG_GROUP_ID, ayrilis_mesaji, reply_markup)
