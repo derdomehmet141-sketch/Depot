@@ -1,10 +1,4 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
+
 import asyncio
 import os
 from datetime import datetime, timedelta
@@ -342,18 +336,18 @@ class Call(PyTgCalls):
                         [
                             [
                                 InlineKeyboardButton(
-                                    "✙ ʌᴅᴅ ϻє вᴧʙʏ ✙",
+                                    "✙ 𝐁𝐨𝐭𝐮 𝐄𝐤𝐥𝐞 ✙",
                                     url=f"https://t.me/{app.username}?startgroup=true",
                                 ),
                                 InlineKeyboardButton(
-                                    "⋞ ᴄʟᴏsє ⋟", callback_data="close_message"
+                                    "⋞ 𝐊𝐚𝐩𝐚𝐭 ⋟", callback_data="close_message"
                                 ),
                             ]
                         ]
                     )
                     await app.send_message(
                         chat_id,
-                        "**🎵 𝐓ʜᴇ 𝐐ᴜᴇᴜᴇ 𝐇ᴀs 𝐅ɪɴɪsʜᴇᴅ. 𝐔sᴇ /play 𝐓ᴏ 𝐀ᴅᴅ 𝐌ᴏʀᴇ 𝐒ᴏɴɢs!!**",
+                        "**🎵 𝐒ı𝐫𝐚 𝐁𝐢𝐭𝐭𝐢. 𝐃𝐚𝐡𝐚 𝐅𝐚𝐳𝐥𝐚 Ş𝐚𝐫𝐤ı 𝐄𝐤𝐥𝐞𝐦𝐞𝐤 İ𝐜̧𝐢𝐧 /play 𝐊𝐮𝐥𝐥𝐚𝐧ı𝐧!!**",
                         reply_markup=buttons,
                     )
                 except:
@@ -367,18 +361,18 @@ class Call(PyTgCalls):
                         [
                             [
                                 InlineKeyboardButton(
-                                    "✙ ʌᴅᴅ ϻє вᴧʙʏ ✙",
+                                    "✙ 𝐁𝐨𝐭𝐮 𝐄𝐤𝐥𝐞 ✙",
                                     url=f"https://t.me/{app.username}?startgroup=true",
                                 ),
                                 InlineKeyboardButton(
-                                    "⋞ ᴄʟᴏsє ⋟", callback_data="close_message"
+                                    "⋞ 𝐊𝐚𝐩𝐚𝐭 ⋟", callback_data="close_message"
                                 ),
                             ]
                         ]
                     )
                     await app.send_message(
                         chat_id,
-                        "🎵 𝐓ʜᴇ 𝐐ᴜᴇᴜᴇ 𝐇ᴀs 𝐅ɪɴɪsʜᴇᴅ. 𝐔sᴇ /play 𝐓ᴏ 𝐀ᴅᴅ 𝐌ᴏʀᴇ 𝐒ᴏɴɢs!!",
+                        "🎵 𝐒ı𝐫𝐚 𝐁𝐢𝐭𝐭𝐢. 𝐃𝐚𝐡𝐚 𝐅𝐚𝐳𝐥𝐚 Ş𝐚𝐫𝐤ı 𝐄𝐤𝐥𝐞𝐦𝐞𝐤 İ𝐜̧𝐢𝐧 /play 𝐊𝐮𝐥𝐥𝐚𝐧ı𝐧!!",
                         reply_markup=buttons,
                     )
                 except:
@@ -417,18 +411,17 @@ class Call(PyTgCalls):
                     original_chat_id,
                     text=_["call_6"],
                 )
-            img = await get_thumb(videoid)
+            
             button = stream_markup(_, chat_id)
-            run = await app.send_photo(
+            run = await app.send_message(
                 chat_id=original_chat_id,
-                photo=img,
-                has_spoiler=True,
-                caption=_["stream_1"].format(
+                text=_["stream_1"].format(
                     f"https://t.me/{app.username}?start=info_{videoid}",
-                    title[:23],
+                    title,
                     check[0]["dur"],
                     user,
                 ),
+                disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(button),
             )
             db[chat_id][0]["mystic"] = run
@@ -454,19 +447,18 @@ class Call(PyTgCalls):
                     original_chat_id,
                     text=_["call_6"],
                 )
-            img = await get_thumb(videoid)
+            
             button = stream_markup(_, chat_id)
             await mystic.delete()
-            run = await app.send_photo(
+            run = await app.send_message(
                 chat_id=original_chat_id,
-                photo=img,
-                has_spoiler=True,
-                caption=_["stream_1"].format(
+                text=_["stream_1"].format(
                     f"https://t.me/{app.username}?start=info_{videoid}",
-                    title[:23],
+                    title,
                     check[0]["dur"],
                     user,
                 ),
+                disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(button),
             )
             db[chat_id][0]["mystic"] = run
@@ -482,11 +474,10 @@ class Call(PyTgCalls):
                     text=_["call_6"],
                 )
             button = stream_markup(_, chat_id)
-            run = await app.send_photo(
+            run = await app.send_message(
                 chat_id=original_chat_id,
-                photo=config.STREAM_IMG_URL,
-                has_spoiler=True,
-                caption=_["stream_2"].format(user),
+                text=_["stream_2"].format(user),
+                disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(button),
             )
             db[chat_id][0]["mystic"] = run
@@ -502,45 +493,39 @@ class Call(PyTgCalls):
                 )
             if videoid == "telegram":
                 button = stream_markup(_, chat_id)
-                run = await app.send_photo(
+                run = await app.send_message(
                     chat_id=original_chat_id,
-                    photo=(
-                        config.TELEGRAM_AUDIO_URL
-                        if str(streamtype) == "audio"
-                        else config.TELEGRAM_VIDEO_URL
+                    text=_["stream_1"].format(
+                        config.SUPPORT_CHAT, title, check[0]["dur"], user
                     ),
-                    caption=_["stream_1"].format(
-                        config.SUPPORT_CHAT, title[:23], check[0]["dur"], user
-                    ),
+                    disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup(button),
                 )
                 db[chat_id][0]["mystic"] = run
                 db[chat_id][0]["markup"] = "tg"
             elif videoid == "soundcloud":
                 button = stream_markup(_, chat_id)
-                run = await app.send_photo(
+                run = await app.send_message(
                     chat_id=original_chat_id,
-                    photo=config.SOUNCLOUD_IMG_URL,
-                    caption=_["stream_1"].format(
-                        config.SUPPORT_CHAT, title[:23], check[0]["dur"], user
+                    text=_["stream_1"].format(
+                        config.SUPPORT_CHAT, title, check[0]["dur"], user
                     ),
+                    disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup(button),
                 )
                 db[chat_id][0]["mystic"] = run
                 db[chat_id][0]["markup"] = "tg"
             else:
-                img = await get_thumb(videoid)
                 button = stream_markup(_, chat_id)
-                run = await app.send_photo(
+                run = await app.send_message(
                     chat_id=original_chat_id,
-                    photo=img,
-                    has_spoiler=True,
-                    caption=_["stream_1"].format(
+                    text=_["stream_1"].format(
                         f"https://t.me/{app.username}?start=info_{videoid}",
-                        title[:23],
+                        title,
                         check[0]["dur"],
                         user,
                     ),
+                    disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup(button),
                 )
                 db[chat_id][0]["mystic"] = run
@@ -563,7 +548,7 @@ class Call(PyTgCalls):
 
     @capture_internal_err
     async def start(self):
-        LOGGER(__name__).info("Starting PyTgCalls Client...\n")
+        LOGGER(__name__).info("PyTgCalls İstemcisi Başlatılıyor...\n")
         if config.STRING1:
             await self.one.start()
         if config.STRING2:
