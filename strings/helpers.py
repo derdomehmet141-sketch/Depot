@@ -1,110 +1,89 @@
-HELP_1 = """**╔══❰ ⚓ ᴀᴅᴍɪɴ ᴍᴏᴅᴜʟᴇ ❱══╗**
+HELP_1 = """<b>🎵 𝙈𝙐𝙕𝙄𝙆 𝙆𝙊𝙈𝙐𝙏𝙇𝘼𝙍𝙄 🎵</b>
 
-**💡 ᴄʜᴀɴɴᴇʟ ᴍᴏᴅᴇ:** Komutların başına `c` ekleyerek kanallarda kullanabilirsiniz.
+⏸️  /duraklat       - 𝙈üziği duraklatır
+▶️  /devam          - 𝙈üziği devam ettirir
+⏩  /atla            - Çalan müziği atlar
+⏹️  /dur            - 𝙈üziği durdurur
+🔀  /karistir        - Parçaları karıştırır
+📑  /sira            - Sıradaki müzikleri gösterir
+⏭️  /ilerisar X      - 𝙈üziği X sn ileri sarar
+⏮️  /gerisar X       - 𝙈üziği X sn geri sarar
+🔁  /dongu X         - 𝙈üziği X kez döngüye alır
 
-**◈/dur /pause** ➜ Akışı geçici olarak durdurur.
-**◈ /devam /resume** ➜ Durdurulan akışı devam ettirir.
-**◈ /atla /skip** ➜ Mevcut parçayı atlar, sıradakine geçer.
-**◈ /son /kapat /stop** ➜ Sırayı temizler ve yayını sonlandırır.
-**◈ /kuyruk /queue** ➜ Sıradaki parçaları listeler.
-**◈/tekrar /loop** ➜ `[1:10]` Arası döngü sağlar.
-**◈ /karısık /shuffle** ➜ Sıradaki parçaları karıştırır.
-**◈ /ilerisar /seek** ➜ Yayını ileri sarar.
-**◈ /seekback** ➜ Yayını geri sarar.
+💡  Örnek: /ilerisar 15 → 15 saniye ileri
 
-**╚══════════════════╝**"""
+▶️  /oynat /play      - 𝙈üziği oynatır (Ör: /oynat Gönül Dağı)
+🎦  /vplay /voynat    - Videoyu oynatır (Ör: /vplay video ismi)
+📥  /bul /indir       - Youtube'dan müzik indirir ([müzik adı] veya [Youtube linki])
+❤️‍🩹 /playlist       - Oynatma listenizi gösterir
+🆑  /listemisil       - Listeden müzik siler
+📃  /oynat
+"""
 
-HELP_2 = """**╔══❰ 🛡️ ᴀᴜᴛʜ ᴍᴏᴅᴜʟᴇ ❱══╗**
+HELP_2 = """🥏 <u>𝘽𝙊𝙏 𝙆𝙊𝙈𝙐𝙏𝙇𝘼𝙍𝙄</u>
 
-**⚡ ᴀᴜᴛʜ ᴜsᴇʀs:** Grupta admin olmasa bile botu yönetebilirler.
+⚡  /start          - Başlatma panelini gösterir
+⚙️  /ayarlar        - Ayarlar menüsüne ulaşır
+🆘  /yardim          - Yardım menüsüne ulaşır
+📡  /ping           - Ping süresini ve sistem durumunu gösterir
+🔄  /restart        - Botu yeniden başlatır
+♻️  /reboot          - Botu yeniden başlatır
+⬆️  /update          - Botu güncelle
+📊  /speedtest       - Sunucu hızlarını kontrol edin
+🛠️  /maintenance     - Botu bakıma alır (enable/disable)
+📜  /logger          - Aranan sorguları günlüğe kaydeder (enable/disable)
+📂  /get_log         - Bot kaydını alın ([Number of Lines])
+⏹️  /autoend         - Kimse dinlemiyorsa 3 dk sonra otomatik yayını sonlandırır
+➕  /addsudo          - Sudo ekler ([Username veya reply])
+➖  /delsudo          - Sudo listesinden çıkarır ([Username veya reply])
+🆘  /sudolist         - Sudo kullanıcılarını gösterir
 
-**◈ /auth** `[username]` ➜ Kullanıcıya yetki verir.
-**◈ /unauth** `[username]` ➜ Kullanıcının yetkisini alır.
-**◈ /authusers** ➜ Yetkili kullanıcıları listeler.
+💬 <b>ℝ𝙀𝙆𝙇𝘼𝙈 𝙆𝙊𝙈𝙐𝙏𝙐</b>
+📢  /broadcast        - Mesajı Bot'un sohbetlerine yayınlar
+📌  -pin              - Mesajı sabitler
+🔔  -pinloud          - Mesajı yüksek sesli bildirimle sabitler
+👤  -user             - Mesajı botu başlatan kullanıcılara yayınlar
+🤖  -assistant        - Mesajı botun asistan hesabından yayınlar
+🚫  -nobot            - Mesaj yayınlamayı engeller
 
-**╚══════════════════╝**"""
+⛔ <b>𝙀𝙉𝙂𝙀𝙇𝙇𝙀𝙈𝙀 𝙆𝙊𝙈𝙐𝙏𝙐</b>
+❌  /blacklistchat     - Sohbeti kara listeye alır
+✅  /whitelistchat     - Kara listeden çıkarır
+📋  /blacklistedchat   - Kara listeyi kontrol eder
+🚫  /gban              - Kullanıcıyı yasaklar ([Kullanıcı adı veya reply])
+♻️  /ungban            - Kullanıcıyı yasaktan çıkarır ([Kullanıcı adı veya reply])
+📄  /gbannedusers      - Yasaklı kullanıcı listesini gösterir
+"""
 
-HELP_3 = """**╔══❰ ⛔ ʙʟᴀᴄᴋʟɪsᴛ ᴍᴏᴅᴜʟᴇ ❱══╗**
+HELP_3 = """<b>🎮 𝙀𝙏İ𝙆𝙀𝙏 & 𝙀Ğ𝙇𝙀𝙉𝘾𝙀 𝙆𝙊𝙈𝙐𝙏𝙇𝘼𝙍𝙄 🎮</b>
 
-**🚫 ᴄʜᴀᴛ ʟɪsᴛ:**
-**◈ /blacklistchat** ➜ Sohbeti yasaklar.
-**◈ /whitelistchat** ➜ Yasaklı sohbeti açar.
-**◈ /blacklistedchat** ➜ Yasaklı listesini gösterir.
+🤖  /chatmode      - Yapay zekayı grup sohbetinde çalıştırır  
+👥  /tag           - Grubunuzdaki tüm üyeleri isimleriyle etiketler  
+👥  /utag          - Grubunuzdaki tüm üyeleri toplu olarak etiketler  
 
-**👤 ᴜsᴇʀ ʙʟᴏᴄᴋ:**
-**◈ /block** ➜ Kullanıcının botu kullanımını engeller.
-**◈ /unblock** ➜ Engeli kaldırır.
-**◈ /blockedusers** ➜ Engellenenleri listeler.
+➪  /guntag        - Üyelere günaydın mesajı atar
+➪  /gecetag       - Üyelere iyi geceler mesajı atar
+➪  /tabutag       - Tabu oyununa davet eder
+➪  /kurttag       - Kurt oyununa davet eder
+➪  /anonimtag     - Anonim oyununa davet eder
 
-**╚══════════════════╝**"""
+💘  /eros          - Aşk listesini günceller veya eşleştirme yapar  
 
-HELP_4 = """**╔══❰ 📣 ʙʀᴏᴀᴅᴄᴀsᴛ ᴍᴏᴅᴜʟᴇ ❱══╗**
+🎲  /zar           - Zar atar (1️⃣-6️⃣ arası rastgele sayı)  
+🎯  /dart          - Dart atar  
+🏀  /basket        - Basketbol oyunu oynar  
+⚽  /fotbol        - Futbol oyunu oynar  
+🎳  /bowling       - Bowling oyunu oynar  
 
-**🚀 sᴜᴅᴏ ᴏɴʟʏ:** Tüm sohbetlere mesaj gönderir.
+🎰  /slot          - Slot makinesi oynar  
+💸  /para          - Mevcut paranı gösterir veya günceller  
 
-**◈ /broadcast** ➜ Genel duyuru yapar.
+😂  /mani          - Rastgele mani söyler  
+🤣  /saka          - Şaka yapar  
+👋  /slap          - Birini tokatlar (eğlencelik komut)  
+💡  /oner          - Rastgele öneri verir (film, müzik, vs.)
 
-**⚙️ ᴍᴏᴅᴇs:**
-➜ `-pin` : Mesajı sabitler.
-➜ `-pinloud` : Bildirimle sabitler.
-➜ `-user` : Botu başlatanlara özel iletir.
-➜ `-nobot` : Bot gönderimini zorla durdurur.
+❤️  /d             - Doğruluk oyunu başlatır  
+🔥  /c             - Cesaret oyunu başlatır
+"""
 
-**📝 ᴇx:** `/broadcast -user -pin Duyuru Mesajı`
-
-**╚══════════════════╝**"""
-
-HELP_5 = """**╔══❰ ⚡ ᴘɪɴɢ ᴍᴏᴅᴜʟᴇ ❱══╗**
-
-**◈ /ping** ➜ Gecikme ve sistem durumunu gösterir.
-**◈ /stats** ➜ En iyi 10 parça, kullanıcı ve grup istatistikleri.
-
-**╚══════════════════╝**"""
-
-HELP_6 = """**╔══❰ 🎧 ᴘʟᴀʏ ᴍᴏᴅᴜʟᴇ ❱══╗**
-
-**🕹️ ᴋɪsᴀʏᴏʟʟᴀʀ:**
-**ᴄ** : Kanal | **ᴠ** : Video | **ғᴏʀᴄᴇ** : Zorla
-
-**◈ /oynat /play** ➜ Sesli sohbette akışı başlatır.
-**◈ /playforce** ➜ Mevcut yayını kesip yenisini başlatır.
-**◈ /channelplay** ➜ Grubu bir kanala bağlar.
-
-**╚══════════════════╝**"""
-
-HELP_7 = """**╔══❰ ⚙️ sᴜᴅᴏ ᴍᴏᴅᴜʟᴇ ❱══╗**
-
-**🧹 ᴄʟᴇᴀɴᴇʀ (ᴘᴀɪᴅ):**
-**◈ /clean** ➜ Bellek temizleme menüsü.
-*(Downloads, Cache, Temp klasörleri)*
-
-**📂 ᴍᴀɴᴀɢᴇʀ (ᴘᴀɪᴅ):**
-**◈ File Manager** ➜ Çok yakında!
-
-**🔧 ᴛᴏᴏʟs (ғʀᴇᴇ):**
-**◈ /logs** ➜ Bot loglarını alır.
-**◈ /logger** ➜ Günlüğü açar/kapatır.
-**◈ /maintenance** ➜ Bakım modunu yönetir.
-
-**👑 sᴜᴅᴏ ʟɪsᴛ:**
-**◈ /sudo** | **/rmsudo** | **/sudolist**
-**◈ /delallsudo** ➜ Tüm listeyi siler (Paid).
-
-**╚══════════════════╝**"""
-
-HELP_8 = """**╔══❰ 🌐 ᴀᴄᴛɪᴠᴇ ᴍᴏᴅᴜʟᴇ ❱══╗**
-
-**◈ /activevoice** ➜ Aktif sesli sohbetler.
-**◈ /activevideo** ➜ Aktif görüntülü sohbetler.
-**◈ /autoend** ➜ Kimse yoksa yayını otomatik kapatır.
-
-**╚══════════════════╝**"""
-
-HELP_9 = """**╔══❰ ✨ sᴛᴀʀᴛ ᴍᴏᴅᴜʟᴇ ❱══╗**
-
-**◈ /start** ➜ Botu çalıştırır.
-**◈ /help** ➜ Komut kılavuzunu açar.
-**◈ /reboot** ➜ Sohbetiniz için botu yeniler.
-**◈ /settings** ➜ İnteraktif ayarlar menüsü.
-
-**╚══════════════════╝**"""
