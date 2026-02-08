@@ -1,11 +1,4 @@
-##
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
+
 
 import asyncio
 
@@ -81,7 +74,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                 exists = confirmer[chat_id][CallbackQuery.message.id]
                 current = db[chat_id][0]
             except:
-                return await CallbackQuery.edit_message_text("ғᴀɪʟᴇᴅ.")
+                return await CallbackQuery.edit_message_text("BAŞARISIZ.")
             try:
                 if current["vidid"] != exists["vidid"]:
                     return await CallbackQuery.edit_message.text(_["admin_35"])
@@ -94,7 +87,7 @@ async def del_back_playlist(client, CallbackQuery, _):
             except:
                 pass
             command = counter
-            mention = "ᴜᴘᴠᴏᴛᴇs"
+            mention = "OYLAMALAR"
         else:
             if (
                 CallbackQuery.from_user.id
@@ -108,7 +101,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                     [
                         InlineKeyboardButton(
                             text=f"👍 {get_upvotes}",
-                            callback_data=f"ADMIN  UpVote|{chat_id}_{counter}",
+                            callback_data=f"ADMIN UpVote|{chat_id}_{counter}",
                         )
                     ]
                 ]
@@ -156,7 +149,7 @@ async def del_back_playlist(client, CallbackQuery, _):
     elif command == "Skip" or command == "Replay":
         check = db.get(chat_id)
         if command == "Skip":
-            txt = f"➻ sᴛʀᴇᴀᴍ sᴋɪᴩᴩᴇᴅ 🎄\n│ \n└ʙʏ : {mention} 🥀"
+            txt = f"➻ Akış Atlandı 🎄\n│ \n└Tarafından : {mention} 🥀"
             popped = None
             try:
                 popped = check.pop(0)
@@ -164,7 +157,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                     await auto_clean(popped)
                 if not check:
                     await CallbackQuery.edit_message_text(
-                        f"➻ sᴛʀᴇᴀᴍ sᴋɪᴩᴩᴇᴅ 🎄\n│ \n└ʙʏ : {mention} 🥀"
+                        f"➻ Akış Atlandı 🎄\n│ \n└Tarafından : {mention} 🥀"
                     )
                     await CallbackQuery.message.reply_text(
                         text=_["admin_6"].format(
@@ -179,7 +172,7 @@ async def del_back_playlist(client, CallbackQuery, _):
             except:
                 try:
                     await CallbackQuery.edit_message_text(
-                        f"➻ sᴛʀᴇᴀᴍ sᴋɪᴩᴩᴇᴅ 🎄\n│ \n└ʙʏ : {mention} 🥀"
+                        f"➻ Akış Atlandı 🎄\n│ \n└Tarafından : {mention} 🥀"
                     )
                     await CallbackQuery.message.reply_text(
                         text=_["admin_6"].format(
@@ -191,7 +184,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                 except:
                     return
         else:
-            txt = f"➻ sᴛʀᴇᴀᴍ ʀᴇ-ᴘʟᴀʏᴇᴅ 🎄\n│ \n└ʙʏ : {mention} 🥀"
+            txt = f"➻ Akış Yeniden Başlatıldı 🎄\n│ \n└Tarafından : {mention} 🥀"
         await CallbackQuery.answer()
         queued = check[0]["file"]
         title = (check[0]["title"]).title()
@@ -224,12 +217,11 @@ async def del_back_playlist(client, CallbackQuery, _):
                 return await CallbackQuery.message.reply_text(_["call_6"])
             button = stream_markup(_, chat_id)
             img = await get_thumb(videoid)
-            run = await CallbackQuery.message.reply_photo(
-                photo=img,
+            run = await CallbackQuery.message.reply_text(
                 has_spoiler=True,
-                caption=_["stream_1"].format(
+                text=_["stream_1"].format(
                     f"https://t.me/{app.username}?start=info_{videoid}",
-                    title[:23],
+                    title,
                     duration,
                     user,
                 ),
@@ -261,12 +253,11 @@ async def del_back_playlist(client, CallbackQuery, _):
                 return await mystic.edit_text(_["call_6"])
             button = stream_markup(_, chat_id)
             img = await get_thumb(videoid)
-            run = await CallbackQuery.message.reply_photo(
-                photo=img,
+            run = await CallbackQuery.message.reply_text(
                 has_spoiler=True,
-                caption=_["stream_1"].format(
+                text=_["stream_1"].format(
                     f"https://t.me/{app.username}?start=info_{videoid}",
-                    title[:23],
+                    title,
                     duration,
                     user,
                 ),
@@ -282,10 +273,9 @@ async def del_back_playlist(client, CallbackQuery, _):
             except:
                 return await CallbackQuery.message.reply_text(_["call_6"])
             button = stream_markup(_, chat_id)
-            run = await CallbackQuery.message.reply_photo(
-                photo=STREAM_IMG_URL,
+            run = await CallbackQuery.message.reply_text(
                 has_spoiler=True,
-                caption=_["stream_2"].format(user),
+                text=_["stream_2"].format(user),
                 reply_markup=InlineKeyboardMarkup(button),
             )
             db[chat_id][0]["mystic"] = run
@@ -307,14 +297,9 @@ async def del_back_playlist(client, CallbackQuery, _):
                 return await CallbackQuery.message.reply_text(_["call_6"])
             if videoid == "telegram":
                 button = stream_markup(_, chat_id)
-                run = await CallbackQuery.message.reply_photo(
-                    photo=(
-                        TELEGRAM_AUDIO_URL
-                        if str(streamtype) == "audio"
-                        else TELEGRAM_VIDEO_URL
-                    ),
-                    caption=_["stream_1"].format(
-                        config.SUPPORT_CHAT, title[:23], duration, user
+                run = await CallbackQuery.message.reply_text(
+                    text=_["stream_1"].format(
+                        config.SUPPORT_CHAT, title, duration, user
                     ),
                     reply_markup=InlineKeyboardMarkup(button),
                 )
@@ -322,14 +307,9 @@ async def del_back_playlist(client, CallbackQuery, _):
                 db[chat_id][0]["markup"] = "tg"
             elif videoid == "soundcloud":
                 button = stream_markup(_, chat_id)
-                run = await CallbackQuery.message.reply_photo(
-                    photo=(
-                        SOUNCLOUD_IMG_URL
-                        if str(streamtype) == "audio"
-                        else TELEGRAM_VIDEO_URL
-                    ),
-                    caption=_["stream_1"].format(
-                        config.SUPPORT_CHAT, title[:23], duration, user
+                run = await CallbackQuery.message.reply_text(
+                    text=_["stream_1"].format(
+                        config.SUPPORT_CHAT, title, duration, user
                     ),
                     reply_markup=InlineKeyboardMarkup(button),
                 )
@@ -338,12 +318,11 @@ async def del_back_playlist(client, CallbackQuery, _):
             else:
                 button = stream_markup(_, chat_id)
                 img = await get_thumb(videoid)
-                run = await CallbackQuery.message.reply_photo(
-                    photo=img,
+                run = await CallbackQuery.message.reply_text(
                     has_spoiler=True,
-                    caption=_["stream_1"].format(
+                    text=_["stream_1"].format(
                         f"https://t.me/{app.username}?start=info_{videoid}",
-                        title[:23],
+                        title,
                         duration,
                         user,
                     ),
@@ -381,7 +360,7 @@ async def markup_timer():
                     language = await get_lang(chat_id)
                     _ = get_string(language)
                 except:
-                    _ = get_string("en")
+                    _ = get_string("tr") # Varsayılan dil Türkçeye çekildi
                 try:
                     buttons = stream_markup_timer(
                         _,
