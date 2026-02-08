@@ -1,5 +1,3 @@
-
-
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
@@ -15,12 +13,16 @@ async def yeni_mesaj(chat_id: int, mesaj: str, reply_markup=None):
 @app.on_message(filters.new_chat_members)
 async def on_new_chat_members(client: Client, message: Message):
     if app.id in [user.id for user in message.new_chat_members]:
-        ekleyen = message.from_user.mention if message.from_user else "Bilinmeyen Kullanıcı"
+        ekleyen = (
+            message.from_user.mention if message.from_user else "Bilinmeyen Kullanıcı"
+        )
         baslik = message.chat.title
-        kullanici_adi = f"@{message.chat.username}" if message.chat.username else "Gizli"
+        kullanici_adi = (
+            f"@{message.chat.username}" if message.chat.username else "Gizli"
+        )
         chat_id = message.chat.id
         uye_sayisi = await client.get_chat_members_count(chat_id)
-        
+
         bildirim = (
             f"✫ <b><u>YENİ GRUP</u></b> :\n\n"
             f"SOHBET ID : {chat_id}\n"
@@ -29,7 +31,7 @@ async def on_new_chat_members(client: Client, message: Message):
             f"TOPLAM ÜYE : {uye_sayisi}\n\n"
             f"EKLEYEN : {ekleyen}"
         )
-        
+
         reply_markup = InlineKeyboardMarkup(
             [
                 [
@@ -47,11 +49,15 @@ async def on_new_chat_members(client: Client, message: Message):
 @app.on_message(filters.left_chat_member)
 async def on_left_chat_member(client: Client, message: Message):
     if app.id == message.left_chat_member.id:
-        cikaran = message.from_user.mention if message.from_user else "Bilinmeyen Kullanıcı"
+        cikaran = (
+            message.from_user.mention if message.from_user else "Bilinmeyen Kullanıcı"
+        )
         baslik = message.chat.title
-        kullanici_adi = f"@{message.chat.username}" if message.chat.username else "Gizli"
+        kullanici_adi = (
+            f"@{message.chat.username}" if message.chat.username else "Gizli"
+        )
         chat_id = message.chat.id
-        
+
         ayrilis_mesaji = (
             f"✫ <b><u>GRUPTAN AYRILDI</u></b> :\n\n"
             f"SOHBET ID : {chat_id}\n"
@@ -59,7 +65,7 @@ async def on_left_chat_member(client: Client, message: Message):
             f"GRUP BAŞLIĞI : {baslik}\n\n"
             f"ÇIKARAN : {cikaran}"
         )
-        
+
         reply_markup = InlineKeyboardMarkup(
             [
                 [
