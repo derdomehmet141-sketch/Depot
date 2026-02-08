@@ -9,7 +9,6 @@ from AloneMusic.utils.database import get_loop
 from AloneMusic.utils.decorators import AdminRightsCheck
 from AloneMusic.utils.inline import close_markup, stream_markup
 from AloneMusic.utils.stream.autoclear import auto_clean
-from AloneMusic.utils.thumbnails import get_thumb
 from config import BANNED_USERS
 
 
@@ -23,7 +22,9 @@ async def delete_old_message(chat_id: int):
 
 
 @app.on_message(
-    filters.command(["skip","atla","catla", "cskip", "next", "cnext"]) & filters.group & ~BANNED_USERS
+    filters.command(["skip", "atla", "catla", "cskip", "next", "cnext"])
+    & filters.group
+    & ~BANNED_USERS
 )
 @AdminRightsCheck
 async def skip(cli, message: Message, _, chat_id):
