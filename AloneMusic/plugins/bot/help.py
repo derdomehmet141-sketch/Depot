@@ -1,16 +1,9 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
+
 
 from typing import Union
 
 from pyrogram import filters, types
-from pyrogram.types import InlineKeyboardMarkup, Message
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 
 from AloneMusic import app
 from AloneMusic.misc import SUDOERS
@@ -38,7 +31,6 @@ async def helper_private(
         _ = get_string(language)
         keyboard = help_pannel(_, True)
         
-        # Resimsiz metin güncelleme
         await update.edit_message_text(
             _["help_1"].format(SUPPORT_CHAT), 
             reply_markup=keyboard
@@ -52,7 +44,7 @@ async def helper_private(
         _ = get_string(language)
         keyboard = help_pannel(_)
         
-        # RESİMSİZ: 4096 Karakter destekli direkt metin mesajı
+        # RESİMSİZ: Sadece metin gönderir
         await update.reply_text(
             text=_["help_1"].format(SUPPORT_CHAT),
             reply_markup=keyboard,
@@ -63,7 +55,6 @@ async def helper_private(
 @LanguageStart
 async def help_com_group(client, message: Message, _):
     keyboard = private_help_panel(_)
-    # Gruplarda özel mesaj yönlendirmesi
     await message.reply_text(
         _["help_2"], 
         reply_markup=InlineKeyboardMarkup(keyboard)
@@ -75,16 +66,29 @@ async def help_com_group(client, message: Message, _):
 async def helper_cb(client, CallbackQuery, _):
     callback_data = CallbackQuery.data.strip()
     cb = callback_data.split(None, 1)[1]
-    keyboard = help_back_markup(_)
     
-    # Sadece 4 Yardım Butonu (hb1, hb2, hb3, hb4)
+    # Geri ve Kapat Butonları
+    keyboard = InlineKeyboardMarkup(
+        [
+            [
+                InlineKeyboardButton(text="⬅️ Geri", callback_data="settings_back_helper"),
+                InlineKeyboardButton(text="🗑️ Kapat", callback_data="close"),
+            ]
+        ]
+    )
+
+    # Sadece 3 Yardım Butonu Aktif
     if cb == "hb1":
         await CallbackQuery.edit_message_text(helpers.HELP_1, reply_markup=keyboard)
     elif cb == "hb2":
         await CallbackQuery.edit_message_text(helpers.HELP_2, reply_markup=keyboard)
     elif cb == "hb3":
         await CallbackQuery.edit_message_text(helpers.HELP_3, reply_markup=keyboard)
-    elif cb == "hb4":
-        await CallbackQuery.edit_message_text(helpers.HELP_4, reply_markup=keyboard)
-    
-    # Not: Diğer hb butonları (5-9) kaldırıldı.
+
+@app.on_callback_query(filters.regex("close") & ~BANNED_USERS)
+async def close_menu(_, query: types.CallbackQuery):
+    try:
+        await query.message.delete()
+        await query.answer("Menü Kapatıldı")
+    except:
+        pass
