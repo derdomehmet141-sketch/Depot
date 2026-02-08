@@ -1,133 +1,110 @@
-HELP_1 = """<b><u>❖ ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴀᴅᴍɪɴ ᴍᴏᴅᴜʟᴇ :</u></b>
+HELP_1 = """**╔══❰ ⚓ ᴀᴅᴍɪɴ ᴍᴏᴅᴜʟᴇ ❱══╗**
 
-<b><u>❖ ᴀᴅᴍɪɴ ᴄᴏᴍᴍᴀɴᴅs :</u></b>
+**💡 ᴄʜᴀɴɴᴇʟ ᴍᴏᴅᴇ:** Komutların başına `c` ekleyerek kanallarda kullanabilirsiniz.
 
-<b>ᴊᴜsᴛ ᴀᴅᴅ <code>ᴄ</code> ɪɴ ᴛʜᴇ sᴛᴀʀᴛɪɴɢ ᴏғ ᴛʜᴇ ᴄᴏᴍᴍᴀɴᴅs ᴛᴏ ᴜsᴇ ᴛʜᴇᴍ ғᴏʀ ᴄʜᴀɴɴᴇʟs.</b>
+**◈/dur /pause** ➜ Akışı geçici olarak durdurur.
+**◈ /devam /resume** ➜ Durdurulan akışı devam ettirir.
+**◈ /atla /skip** ➜ Mevcut parçayı atlar, sıradakine geçer.
+**◈ /son /kapat /stop** ➜ Sırayı temizler ve yayını sonlandırır.
+**◈ /kuyruk /queue** ➜ Sıradaki parçaları listeler.
+**◈/tekrar /loop** ➜ `[1:10]` Arası döngü sağlar.
+**◈ /karısık /shuffle** ➜ Sıradaki parçaları karıştırır.
+**◈ /ilerisar /seek** ➜ Yayını ileri sarar.
+**◈ /seekback** ➜ Yayını geri sarar.
 
-<b>๏ /pause -</b> ᴘᴀᴜsᴇ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ᴘʟᴀʏɪɴɢ sᴛʀᴇᴀᴍ  
-<b>๏ /resume -</b> ʀᴇsᴜᴍᴇ ᴛʜᴇ ᴘᴀᴜsᴇᴅ sᴛʀᴇᴀᴍ  
-<b>๏ /skip -</b> sᴋɪᴘ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ᴘʟᴀʏɪɴɢ sᴛʀᴇᴀᴍ ᴀɴᴅ sᴛᴀʀᴛ ᴛʜᴇ ɴᴇxᴛ ᴛʀᴀᴄᴋ ɪɴ ǫᴜᴇᴜᴇ  
-<b>๏ /end ᴏʀ /stop -</b> ᴄʟᴇᴀʀs ᴛʜᴇ ǫᴜᴇᴜᴇ ᴀɴᴅ ᴇɴᴅ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ᴘʟᴀʏɪɴɢ sᴛʀᴇᴀᴍ  
-<b>๏ /queue -</b> sʜᴏᴡs ᴛʜᴇ ǫᴜᴇᴜᴇᴅ ᴛʀᴀᴄᴋs ʟɪsᴛ  
-<b>๏ /loop [disable/enable] ᴏʀ [between 1:10] -</b> ᴡʜᴇɴ ᴀᴄᴛɪᴠᴀᴛᴇᴅ ʙᴏᴛ ᴡɪʟʟ ᴘʟᴀʏ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ sᴛʀᴇᴀᴍ ɪɴ ʟᴏᴏᴘ ғᴏʀ 10 ᴛɪᴍᴇs ᴏʀ ᴛʜᴇ ɴᴜᴍʙᴇʀ ᴏғ ʀᴇǫᴜᴇsᴛᴇᴅ ʟᴏᴏᴘs  
-<b>๏ /shuffle -</b> sʜᴜғғʟᴇ ᴛʜᴇ ǫᴜᴇᴜᴇᴅ ᴛʀᴀᴄᴋs  
-<b>๏ /seek -</b> sᴇᴇᴋ ᴛʜᴇ sᴛʀᴇᴀᴍ ᴛᴏ ᴛʜᴇ ɢɪᴠᴇɴ ᴅᴜʀᴀᴛɪᴏɴ  
-<b>๏ /seekback -</b> ʙᴀᴄᴋᴡᴀʀᴅ sᴇᴇᴋ ᴛʜᴇ sᴛʀᴇᴀᴍ ᴛᴏ ᴛʜᴇ ɢɪᴠᴇɴ ᴅᴜʀᴀᴛɪᴏɴ  
-"""
+**╚══════════════════╝**"""
 
-HELP_2 = """<b><u>❖ ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴀᴜᴛʜ ᴍᴏᴅᴜʟᴇ :</u></b>
+HELP_2 = """**╔══❰ 🛡️ ᴀᴜᴛʜ ᴍᴏᴅᴜʟᴇ ❱══╗**
 
-<b><u>❖ ᴀᴜᴛʜ ᴜsᴇʀs :</u></b>
+**⚡ ᴀᴜᴛʜ ᴜsᴇʀs:** Grupta admin olmasa bile botu yönetebilirler.
 
-<b>ᴀᴜᴛʜ ᴜsᴇʀs ᴄᴀɴ ᴜsᴇ ᴀᴅᴍɪɴ ʀɪɢʜᴛs ɪɴ ᴛʜᴇ ʙᴏᴛ ᴡɪᴛʜᴏᴜᴛ ᴀᴅᴍɪɴ ʀɪɢʜᴛs ɪɴ ᴛʜᴇ ᴄʜᴀᴛ. [ᴀᴅᴍɪɴs ᴏɴʟʏ]</b>
+**◈ /auth** `[username]` ➜ Kullanıcıya yetki verir.
+**◈ /unauth** `[username]` ➜ Kullanıcının yetkisini alır.
+**◈ /authusers** ➜ Yetkili kullanıcıları listeler.
 
-<b>๏ /auth [ᴜsᴇʀɴᴀᴍᴇ] -</b> ᴀᴅᴅ ᴀ ᴜsᴇʀ ᴛᴏ ᴀᴜᴛʜ ʟɪsᴛ ᴏғ ᴛʜᴇ ʙᴏᴛ.
+**╚══════════════════╝**"""
 
-<b>๏ /unauth [ᴜsᴇʀɴᴀᴍᴇ] -</b> ʀᴇᴍᴏᴠᴇ ᴀ ᴀᴜᴛʜ ᴜsᴇʀ ғʀᴏᴍ ᴛʜᴇ ᴀᴜᴛʜ ᴜsᴇʀs ʟɪsᴛ.
+HELP_3 = """**╔══❰ ⛔ ʙʟᴀᴄᴋʟɪsᴛ ᴍᴏᴅᴜʟᴇ ❱══╗**
 
-<b>๏ /authusers -</b> sʜᴏᴡs ᴛʜᴇ ᴀᴜᴛʜ ᴜsᴇʀs ʟɪsᴛ ᴏғ ᴛʜᴇ ɢʀᴏᴜᴘ.
-"""
+**🚫 ᴄʜᴀᴛ ʟɪsᴛ:**
+**◈ /blacklistchat** ➜ Sohbeti yasaklar.
+**◈ /whitelistchat** ➜ Yasaklı sohbeti açar.
+**◈ /blacklistedchat** ➜ Yasaklı listesini gösterir.
 
-HELP_3 = """<b><u>❖ ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ʙʟᴀᴄᴋʟɪsᴛ ᴍᴏᴅᴜʟᴇ :</u></b>
+**👤 ᴜsᴇʀ ʙʟᴏᴄᴋ:**
+**◈ /block** ➜ Kullanıcının botu kullanımını engeller.
+**◈ /unblock** ➜ Engeli kaldırır.
+**◈ /blockedusers** ➜ Engellenenleri listeler.
 
-<b><u>❖ ʙʟᴀᴄᴋʟɪsᴛ ᴄʜᴀᴛ :</u></b>
+**╚══════════════════╝**"""
 
-<b>๏ /blacklistchat [ᴄʜᴀᴛ ɪᴅ] -</b> ʙʟᴀᴄᴋʟɪsᴛ ᴀ ᴄʜᴀᴛ ғʀᴏᴍ ᴜsɪɴɢ ᴛʜᴇ ʙᴏᴛ.
+HELP_4 = """**╔══❰ 📣 ʙʀᴏᴀᴅᴄᴀsᴛ ᴍᴏᴅᴜʟᴇ ❱══╗**
 
-<b>๏ /whitelistchat [ᴄʜᴀᴛ ɪᴅ] -</b> ᴡʜɪᴛᴇʟɪsᴛ ᴛʜᴇ ʙʟᴀᴄᴋʟɪsᴛᴇᴅ ᴄʜᴀᴛ.
+**🚀 sᴜᴅᴏ ᴏɴʟʏ:** Tüm sohbetlere mesaj gönderir.
 
-<b>๏ /blacklistedchat -</b> sʜᴏᴡs ᴛʜᴇ ʟɪsᴛ ᴏғ ʙʟᴀᴄᴋʟɪsᴛᴇᴅ ᴄʜᴀᴛs.
+**◈ /broadcast** ➜ Genel duyuru yapar.
 
-<b><u>❖ ʙʟᴏᴄᴋ ᴜsᴇʀs:</u></b>
+**⚙️ ᴍᴏᴅᴇs:**
+➜ `-pin` : Mesajı sabitler.
+➜ `-pinloud` : Bildirimle sabitler.
+➜ `-user` : Botu başlatanlara özel iletir.
+➜ `-nobot` : Bot gönderimini zorla durdurur.
 
-<b>๏ /block [ᴜsᴇʀɴᴀᴍᴇ ᴏʀ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴄʜᴜᴛɪʏᴀ] -</b> sᴛᴀʀᴛs ɪɢɴᴏʀɪɴɢ ᴛʜᴇ ᴄʜᴜᴛɪʏᴀ, sᴏ ᴛʜᴀᴛ ʜᴇ ᴄᴀɴ'ᴛ ᴜsᴇ ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅs.
+**📝 ᴇx:** `/broadcast -user -pin Duyuru Mesajı`
 
-<b>๏ /unblock [ᴜsᴇʀɴᴀᴍᴇ ᴏʀ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ] -</b> ᴜɴʙʟᴏᴄᴋs ᴛʜᴇ ʙʟᴏᴄᴋᴇᴅ ᴜsᴇʀ.
+**╚══════════════════╝**"""
 
-<b>๏ /blockedusers -</b> sʜᴏᴡs ᴛʜᴇ ʟɪsᴛ ᴏғ ʙʟᴏᴄᴋᴇᴅ ᴜsᴇʀs.
-"""
+HELP_5 = """**╔══❰ ⚡ ᴘɪɴɢ ᴍᴏᴅᴜʟᴇ ❱══╗**
 
-HELP_4 = """<b><u>❖ ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ʙʀᴏᴀᴅᴄᴀsᴛ ᴍᴏᴅᴜʟᴇ :</b></u>
+**◈ /ping** ➜ Gecikme ve sistem durumunu gösterir.
+**◈ /stats** ➜ En iyi 10 parça, kullanıcı ve grup istatistikleri.
 
-<b><u>❖ ʙʀᴏᴀᴅᴄᴀsᴛ ғᴇᴀᴛᴜʀᴇ [ᴏɴʟʏ ғᴏʀ sᴜᴅᴏᴇʀs] :</b></u>
+**╚══════════════════╝**"""
 
-<b>๏ /broadcast [ᴍᴇssᴀɢᴇ ᴏʀ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ] -</b> sᴇɴᴅ ᴀ ʙʀᴏᴀᴅᴄᴀsᴛ ᴍᴇssᴀɢᴇ ᴛᴏ ᴀʟʟ sᴇʀᴠᴇᴅ ᴄʜᴀᴛs ᴏғ ᴛʜᴇ ʙᴏᴛ.
+HELP_6 = """**╔══❰ 🎧 ᴘʟᴀʏ ᴍᴏᴅᴜʟᴇ ❱══╗**
 
-<b><u>❖ ʙʀᴏᴀᴅᴄᴀsᴛɪɴɢ ᴍᴏᴅᴇs:</b></u>
-๏ <code>-pin</code> : ᴘɪɴs ʏᴏᴜʀ ʙʀᴏᴀᴅᴄᴀsᴛᴇᴅ ᴍᴇssᴀɢᴇs ɪɴ sᴇʀᴠᴇᴅ ᴄʜᴀᴛs.
-๏ <code>-pinloud</code> : ᴘɪɴs ʏᴏᴜʀ ʙʀᴏᴀᴅᴄᴀsᴛᴇᴅ ᴍᴇssᴀɢᴇ ɪɴ sᴇʀᴠᴇᴅ ᴄʜᴀᴛs ᴀɴᴅ sᴇɴᴅs ɴᴏᴛɪғɪᴄᴀᴛɪᴏɴ ᴛᴏ ᴛʜᴇ ᴍᴇᴍʙᴇʀs.
-๏ <code>-user</code> : ʙʀᴏᴀᴅᴄᴀsᴛs ᴛʜᴇ ᴍᴇssᴀɢᴇ ᴛᴏ ᴛʜᴇ ᴜsᴇʀs ᴡʜᴏ ʜᴀᴠᴇ sᴛᴀʀᴛᴇᴅ ʏᴏᴜʀ ʙᴏᴛ.
-๏ <code>-nobot</code> : ғᴏʀᴄᴇs ᴛʜᴇ ʙᴏᴛ ᴛᴏ ɴᴏᴛ ʙʀᴏᴀᴅᴄᴀsᴛ ᴛʜᴇ ᴍᴇssᴀɢᴇ.
-<pre language='python'>๏ ᴇxᴀᴍᴘʟᴇ : /broadcast -user -pin ᴛᴇsᴛɪɴɢ ʙʀᴏᴀᴅᴄᴀsᴛ</pre>
-"""
+**🕹️ ᴋɪsᴀʏᴏʟʟᴀʀ:**
+**ᴄ** : Kanal | **ᴠ** : Video | **ғᴏʀᴄᴇ** : Zorla
 
-HELP_5 = """<b><u>❖ ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴘɪɴɢ ᴍᴏᴅᴜʟᴇ :</b></u>
+**◈ /oynat /play** ➜ Sesli sohbette akışı başlatır.
+**◈ /playforce** ➜ Mevcut yayını kesip yenisini başlatır.
+**◈ /channelplay** ➜ Grubu bir kanala bağlar.
 
-<b><u>❖ ᴘɪɴɢ ᴄᴏᴍᴍᴀɴᴅ :</b></u>
+**╚══════════════════╝**"""
 
-<b>๏ /ping -</b> sʜᴏᴡ ᴛʜᴇ ᴘɪɴɢ ᴀɴᴅ sʏsᴛᴇᴍ sᴛᴀᴛs ᴏғ ᴛʜᴇ ʙᴏᴛ.
-<b>๏ /stats -</b> ɢᴇᴛ ᴛᴏᴘ 10 ᴛʀᴀᴄᴋ ɢʟᴏʙᴀʟ sᴛᴀᴛs, ᴛᴏᴘ 10 ᴜsᴇʀs ᴏғ ᴛʜᴇ ʙᴏᴛ, ᴛᴏᴘ 10 ᴄʜᴀᴛs ᴏɴ ᴛʜᴇ ʙᴏᴛ, ᴛᴏᴘ 10 ᴘʟᴀʏᴇᴅ ɪɴ ᴛʜᴇ ᴄʜᴀᴛ ᴀɴᴅ ᴍᴀɴʏ ᴍᴏʀᴇ...
-"""
+HELP_7 = """**╔══❰ ⚙️ sᴜᴅᴏ ᴍᴏᴅᴜʟᴇ ❱══╗**
 
-HELP_6 = """<b><u>❖ ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴘʟᴀʏ ᴍᴏᴅᴜʟᴇ :</b></u>
+**🧹 ᴄʟᴇᴀɴᴇʀ (ᴘᴀɪᴅ):**
+**◈ /clean** ➜ Bellek temizleme menüsü.
+*(Downloads, Cache, Temp klasörleri)*
 
-<b><u>❖ ᴘʟᴀʏ ᴄᴏᴍᴍᴀɴᴅs:</b></u>
+**📂 ᴍᴀɴᴀɢᴇʀ (ᴘᴀɪᴅ):**
+**◈ File Manager** ➜ Çok yakında!
 
-<b>๏ c</b> sᴛᴀɴᴅs ғᴏʀ ᴄʜᴀɴɴᴇʟ ᴘʟᴀʏ.  
-<b>๏ v</b> sᴛᴀɴᴅs ғᴏʀ ᴠɪᴅᴇᴏ ᴘʟᴀʏ.  
-<b>๏ force</b> sᴛᴀɴᴅs ғᴏʀ ғᴏʀᴄᴇ ᴘʟᴀʏ.
+**🔧 ᴛᴏᴏʟs (ғʀᴇᴇ):**
+**◈ /logs** ➜ Bot loglarını alır.
+**◈ /logger** ➜ Günlüğü açar/kapatır.
+**◈ /maintenance** ➜ Bakım modunu yönetir.
 
-<b>๏ /play ᴏʀ /vplay ᴏʀ /cplay -</b> sᴛᴀʀᴛs sᴛʀᴇᴀᴍɪɴɢ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ᴛʀᴀᴄᴋ ᴏɴ ᴠɪᴅᴇᴏᴄʜᴀᴛ.
-<b>๏ /playforce ᴏʀ /vplayforce ᴏʀ /cplayforce -</b> ғᴏʀᴄᴇ ᴘʟᴀʏ sᴛᴏᴘs ᴛʜᴇ ᴏɴɢᴏɪɴɢ sᴛʀᴇᴀᴍ ᴀɴᴅ sᴛᴀʀᴛs sᴛʀᴇᴀᴍɪɴɢ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ᴛʀᴀᴄᴋ.
-<b>๏ /channelplay [ᴄʜᴀᴛ ᴜsᴇʀɴᴀᴍᴇ ᴏʀ ɪᴅ] ᴏʀ [ᴅɪsᴀʙʟᴇ] -</b> ᴄᴏɴɴᴇᴄᴛ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴀ ɢʀᴏᴜᴘ ᴀɴᴅ sᴛᴀʀᴛs sᴛʀᴇᴀᴍɪɴɢ ᴛʀᴀᴄᴋs ʙʏ ᴛʜᴇ ʜᴇʟᴘ ᴏғ ᴄᴏᴍᴍᴀɴᴅs sᴇɴᴛ ɪɴ ɢʀᴏᴜᴘ.
-"""
+**👑 sᴜᴅᴏ ʟɪsᴛ:**
+**◈ /sudo** | **/rmsudo** | **/sudolist**
+**◈ /delallsudo** ➜ Tüm listeyi siler (Paid).
 
-HELP_7 = """<b><u>❖ ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ sᴜᴅᴏ ᴍᴏᴅᴜʟᴇ :</b></u>
+**╚══════════════════╝**"""
 
-<b>❖ ᴍᴇᴀɴɪɴɢ ᴏғ ᴘᴀɪᴅ ᴏʀ ғʀᴇᴇ :</b>
-<b>๏ ғʀᴇᴇ —</b> ғᴏʀ ᴘʀᴏ ᴄᴏᴅᴇʀs 😎
-<b>๏ ᴘᴀɪᴅ —/b> sʜᴏᴡs ʏᴏᴜʀ sᴛᴀᴛᴜs 😉
+HELP_8 = """**╔══❰ 🌐 ᴀᴄᴛɪᴠᴇ ᴍᴏᴅᴜʟᴇ ❱══╗**
 
-<b>❖ sᴛᴏʀᴀɢᴇ ᴄʟᴇᴀɴᴇʀ — ᴘᴀɪᴅ :</b>
-๏ <b>/clean</b> – ᴠɪᴇᴡ sᴛᴏʀᴀɢᴇ ᴜsᴀɢᴇ & ᴄʟᴇᴀɴᴀʙʟᴇ ғᴏʟᴅᴇʀs
-๏ ᴄʟɪᴄᴋ ʙᴜᴛᴛᴏɴs ᴛᴏ ᴄʟᴇᴀɴ sᴘᴇᴄɪғɪᴄ ғᴏʟᴅᴇʀs :
-   ├ ᴅᴏᴡɴʟᴏᴀᴅs
-   ├ ᴄᴀᴄʜᴇ
-   └ ᴛᴇᴍᴘ
-๏ <b>ᴄʟᴇᴀɴ ᴀʟʟ</b> – ᴄʟᴇᴀɴs ᴇᴠᴇʀʏᴛʜɪɴɢ ɪɴ ᴏɴᴇ ɢᴏ
-❖ ғᴏʟᴅᴇʀ sᴛʀᴜᴄᴛᴜʀᴇ, sɪᴢᴇ & ғɪʟᴇ ᴄᴏᴜɴᴛ ɪɴᴄʟᴜᴅᴇᴅ
-❖ ғᴜʟʟ ᴅɪsᴋ sᴛᴀᴛs ᴀʟsᴏ sʜᴏᴡɴ
+**◈ /activevoice** ➜ Aktif sesli sohbetler.
+**◈ /activevideo** ➜ Aktif görüntülü sohbetler.
+**◈ /autoend** ➜ Kimse yoksa yayını otomatik kapatır.
 
-<b>❖ ғɪʟᴇ ᴍᴀɴᴀɢᴇʀ — ᴘᴀɪᴅ :</b>
-<b>๏ sᴏᴏɴ</b> – ɪᴛ ᴡɪʟʟ ʙᴇ ᴘᴜʙʟɪᴄ ɪɴ ᴛʜᴇ ɴᴇxᴛ ᴜᴘᴅᴀᴛᴇ
+**╚══════════════════╝**"""
 
-<b>❖ ᴛʜᴇsᴇ ᴛᴏᴏʟs ᴀʀᴇ ᴏғ ɴᴏ ᴜsᴇ — ғʀᴇᴇ :</b>
-<b>๏ /logs -</b> ɢᴇᴛ ʟᴏɢs ᴏғ ᴛʜᴇ ʙᴏᴛ  
-<b>๏ /logger [ᴇɴᴀʙʟᴇ/ᴅɪsᴀʙʟᴇ] -</b> ʙᴏᴛ ᴡɪʟʟ sᴛᴀʀᴛ ʟᴏɢɢɪɴɢ ᴛʜᴇ ᴀᴄᴛɪᴠɪᴛɪᴇs ʜᴀᴘᴘᴇɴ ᴏɴ ʙᴏᴛ  
-<b>๏ /maintenance [ᴇɴᴀʙʟᴇ/ᴅɪsᴀʙʟᴇ] -</b> ᴇɴᴀʙʟᴇ ᴏʀ ᴅɪsᴀʙʟᴇ ᴛʜᴇ ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ᴍᴏᴅᴇ ᴏғ ʏᴏᴜʀ ʙᴏᴛ  
+HELP_9 = """**╔══❰ ✨ sᴛᴀʀᴛ ᴍᴏᴅᴜʟᴇ ❱══╗**
 
-<b>❖ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ sᴜᴅᴏ ʟɪsᴛ — ᴘᴀɪᴅ - ғʀᴇᴇ :</b>
-<b>๏ /sudo -</b> ᴀᴅᴅ ᴀ sᴜᴅᴏ ᴜsᴇʀ  
-<b>๏ /rmsudo -</b> ʀᴇᴍᴏᴠᴇ sᴜᴅᴏ ᴜsᴇʀ  
-<b>๏ /sudolist -</b> ᴄʜᴇᴄᴋ sᴜᴅᴏʟɪsᴛ
-<b>๏ /delallsudo -</b> ʀᴇᴍᴏᴠᴇ ᴀʟʟ sᴜᴅᴏ ᴜsᴇʀ's — ᴘᴀɪᴅ
-"""
+**◈ /start** ➜ Botu çalıştırır.
+**◈ /help** ➜ Komut kılavuzunu açar.
+**◈ /reboot** ➜ Sohbetiniz için botu yeniler.
+**◈ /settings** ➜ İnteraktif ayarlar menüsü.
 
-HELP_8 = """<b><u>❖ ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ ᴀᴄᴛɪᴠᴇ ᴠɪᴅᴇᴏᴄʜᴀᴛs ᴍᴏᴅᴜʟᴇ :</b></u>
-
-<b><u>❖ ᴀᴄᴛɪᴠᴇ ᴠɪᴅᴇᴏᴄʜᴀᴛs :</b></u>
-
-<b>๏ /activevoice -</b> sʜᴏᴡs ᴛʜᴇ ʟɪsᴛ ᴏғ ᴀᴄᴛɪᴠᴇ ᴠᴏɪᴄᴇᴄʜᴀᴛs ᴏɴ ᴛʜᴇ ʙᴏᴛ.
-<b>๏ /activevideo -</b> sʜᴏᴡs ᴛʜᴇ ʟɪsᴛ ᴏғ ᴀᴄᴛɪᴠᴇ ᴠɪᴅᴇᴏᴄʜᴀᴛs ᴏɴ ʙᴏᴛ.
-<b>๏ /autoend [ᴇɴᴀʙʟᴇ|ᴅɪsᴀʙʟᴇ] -</b> ᴇɴᴀʙʟᴇ sᴛʀᴇᴀᴍ ᴀᴜᴛᴏ ᴇɴᴅ ɪғ ɴᴏ ᴏɴᴇ ɪs ʟɪsᴛᴇɴɪɴɢ.
-"""
-
-HELP_9 = """<b><u>❖ ʜᴇʀᴇ ɪs ᴛʜᴇ ʜᴇʟᴘ ғᴏʀ sᴛᴀʀᴛ ᴍᴏᴅᴜʟᴇ :</b></u>
-
-<b><u>❖ ɢᴇᴛ sᴛᴀʀᴛᴇᴅ ᴡɪᴛʜ ʙᴏᴛ</b></u>
-
-<b>๏ /start -</b> sᴛᴀʀᴛs ᴛʜᴇ ᴍᴜsɪᴄ ʙᴏᴛ.
-<b>๏ /help -</b> ɢᴇᴛ ʜᴇʟᴘ ᴍᴇɴᴜ ᴡɪᴛʜ ᴇxᴘʟᴀɴᴀᴛɪᴏɴ ᴏғ ᴄᴏᴍᴍᴀɴᴅs.
-<b>๏ /reboot -</b> ʀᴇʙᴏᴏᴛs ᴛʜᴇ ʙᴏᴛ ғᴏʀ ʏᴏᴜʀ ᴄʜᴀᴛ.
-<b>๏ /settings -</b> sʜᴏᴡs ᴛʜᴇ ɢʀᴏᴜᴘ sᴇᴛᴛɪɴɢs ᴡɪᴛʜ ᴀɴ ɪɴᴛᴇʀᴀᴄᴛɪᴠᴇ ɪɴʟɪɴᴇ ᴍᴇɴᴜ.
-"""
+**╚══════════════════╝**"""
