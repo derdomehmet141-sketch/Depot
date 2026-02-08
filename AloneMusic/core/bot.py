@@ -1,10 +1,4 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-#
-# All rights reserved.
+
 
 from pyrogram import Client, errors
 from pyrogram.enums import ChatMemberStatus, ParseMode
@@ -16,7 +10,7 @@ from ..logging import LOGGER
 
 class Alone(Client):
     def __init__(self):
-        LOGGER(__name__).info("Starting Bot...")
+        LOGGER(__name__).info("Bot Başlatılıyor...")
         super().__init__(
             name="AloneMusic",
             api_id=config.API_ID,
@@ -37,26 +31,26 @@ class Alone(Client):
         try:
             await self.send_message(
                 chat_id=config.LOGGER_ID,
-                text=f"<u><b>» {self.mention} ʙᴏᴛ sᴛᴀʀᴛᴇᴅ :</b><u>\n\nɪᴅ : <code>{self.id}</code>\nɴᴀᴍᴇ : {self.name}\nᴜsᴇʀɴᴀᴍᴇ : @{self.username}",
+                text=f"<u><b>» {self.mention} ʙᴏᴛ ʙᴀşʟᴀᴛɪʟᴅɪ :</b></u>\n\nɪᴅ : <code>{self.id}</code>\nᴀᴅ : {self.name}\nᴋᴜʟʟᴀɴɪᴄɪ ᴀᴅɪ : @{self.username}",
             )
         except (errors.ChannelInvalid, errors.PeerIdInvalid):
             LOGGER(__name__).error(
-                "Bot has failed to access the log group/channel. Make sure that you have added your bot to your log group/channel."
+                "Bot log grubuna/kanalına erişemedi. Lütfen botu log kanalınıza eklediğinizden emin olun."
             )
             exit()
         except Exception as ex:
             LOGGER(__name__).error(
-                f"Bot has failed to access the log group/channel.\n  Reason : {type(ex).__name__}."
+                f"Bot log grubuna/kanalına erişirken bir hata oluştu.\n Sebep : {type(ex).__name__}."
             )
             exit()
 
         a = await self.get_chat_member(config.LOGGER_ID, self.id)
         if a.status != ChatMemberStatus.ADMINISTRATOR:
             LOGGER(__name__).error(
-                "Please promote your bot as an admin in your log group/channel."
+                "Lütfen botu log grubunuzda/kanalınızda yönetici yapın."
             )
             exit()
-        LOGGER(__name__).info(f"Music Bot Started as {self.name}")
+        LOGGER(__name__).info(f"Müzik Botu {self.name} olarak başlatıldı.")
 
     async def stop(self):
         await super().stop()
