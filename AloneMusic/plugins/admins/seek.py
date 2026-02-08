@@ -1,4 +1,3 @@
-
 from pyrogram import filters
 from pyrogram.types import Message
 
@@ -11,7 +10,7 @@ from config import BANNED_USERS
 
 
 @app.on_message(
-    filters.command(["seek","ilerisar", "cseek", "seekback", "cseekback"])
+    filters.command(["seek", "ilerisar", "cseek", "seekback", "cseekback"])
     & filters.group
     & ~BANNED_USERS
 )
