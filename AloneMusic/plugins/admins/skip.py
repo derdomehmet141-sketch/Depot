@@ -32,7 +32,9 @@ async def delete_old_message(chat_id: int):
 
 
 @app.on_message(
-    filters.command(["skip","atla","catla", "cskip", "next", "cnext"]) & filters.group & ~BANNED_USERS
+    filters.command(["skip", "atla", "catla", "cskip", "next", "cnext"])
+    & filters.group
+    & ~BANNED_USERS
 )
 @AdminRightsCheck
 async def skip(cli, message: Message, _, chat_id):
