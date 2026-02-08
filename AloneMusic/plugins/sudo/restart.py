@@ -1,10 +1,4 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
-# All rights reserved.
+
 import asyncio
 import os
 import shutil
@@ -30,32 +24,32 @@ async def is_heroku():
     return "heroku" in socket.getfqdn().lower()
 
 
-# ---------------- LOGS ----------------
-@app.on_message(filters.command(["getlog", "logs", "getlogs"]) & SUDOERS)
+# ---------------- LOGLAR ----------------
+@app.on_message(filters.command(["getlog", "logs", "getlogs", "loglar"]) & SUDOERS)
 @language
 async def log_(client, message, _):
     try:
         await message.reply_document("log.txt")
     except:
-        await message.reply_text(_["server_1"])
+        await message.reply_text("Log dosyası bulunamadı veya gönderilemedi.")
 
 
-# ---------------- UPDATE ----------------
-@app.on_message(filters.command(["update", "gitpull"]) & SUDOERS)
+# ---------------- GÜNCELLEME ----------------
+@app.on_message(filters.command(["update", "gitpull", "guncelle"]) & SUDOERS)
 @language
 async def update_(client, message, _):
     if await is_heroku():
         if HAPP is None:
-            return await message.reply_text(_["server_2"])
+            return await message.reply_text("Heroku yapılandırması eksik, güncelleme yapılamıyor.")
 
-    response = await message.reply_text(_["server_3"])
+    response = await message.reply_text("Güncellemeler kontrol ediliyor, lütfen bekleyin...")
 
     try:
         repo = Repo(search_parent_directories=True)
     except GitCommandError:
-        return await response.edit(_["server_4"])
+        return await response.edit("Git komut hatası oluştu.")
     except InvalidGitRepositoryError:
-        return await response.edit(_["server_5"])
+        return await response.edit("Geçersiz Git deposu.")
 
     os.system(f"git fetch origin {config.UPSTREAM_BRANCH} &> /dev/null")
     await asyncio.sleep(5)
@@ -65,32 +59,29 @@ async def update_(client, message, _):
         verification = str(check.count())
 
     if verification == "":
-        return await response.edit(_["server_6"])
+        return await response.edit("Bot zaten en güncel sürümde.")
 
     updates = ""
     REPO_ = repo.remotes.origin.url.split(".git")[0]
 
     def ordinal(n):
-        return "%d%s" % (
-            n,
-            "tsnrhtdd"[(n // 10 % 10 != 1) * (n % 10 < 4) * n % 10 :: 4],
-        )
+        return "%d." % n  # Türkçe için sadece nokta yeterlidir
 
     for info in repo.iter_commits(f"HEAD..origin/{config.UPSTREAM_BRANCH}"):
         date = datetime.fromtimestamp(info.committed_date)
         updates += (
             f"<b>➣ #{info.count()}: "
             f"<a href={REPO_}/commit/{info}>{info.summary}</a> "
-            f"ʙʏ -> {info.author}</b>\n"
-            f"\t\t<b>➥ ᴄᴏᴍᴍɪᴛᴇᴅ ᴏɴ :</b> "
-            f"{ordinal(int(date.strftime('%d')))} "
+            f"Yazılım: {info.author}</b>\n"
+            f"\t\t<b>➥ Tarih:</b> "
+            f"{date.strftime('%d')} "
             f"{date.strftime('%b')}, {date.strftime('%Y')}\n\n"
         )
 
     final_text = (
-        "<b>ᴀ ɴᴇᴡ ᴜᴩᴅᴀᴛᴇ ɪs ᴀᴠᴀɪʟᴀʙʟᴇ ғᴏʀ ᴛʜᴇ ʙᴏᴛ !</b>\n\n"
-        "➣ ᴩᴜsʜɪɴɢ ᴜᴩᴅᴀᴛᴇs ɴᴏᴡ\n\n"
-        "<b><u>ᴜᴩᴅᴀᴛᴇs:</u></b>\n\n"
+        "<b>Bot için yeni bir güncelleme mevcut!</b>\n\n"
+        "➣ Güncellemeler uygulanıyor...\n\n"
+        "<b><u>Değişiklikler:</u></b>\n\n"
         f"{updates}"
     )
 
@@ -104,18 +95,18 @@ async def update_(client, message, _):
             try:
                 await app.send_message(
                     int(x),
-                    _["server_8"].format(app.mention),
+                    f"{app.mention} güncelleniyor. Görüşmek üzere!",
                 )
                 await remove_active_chat(x)
                 await remove_active_video_chat(x)
             except:
                 pass
 
-        await response.edit(f"{final_text}\n\n{_['server_7']}")
+        await response.edit(f"{final_text}\n\nBot başarıyla güncellendi! Yeniden başlatılıyor...")
     except:
         pass
 
-    # -------- RESTART --------
+    # -------- YENİDEN BAŞLAT --------
     if await is_heroku():
         try:
             os.system(
@@ -129,26 +120,26 @@ async def update_(client, message, _):
         except Exception as err:
             await app.send_message(
                 config.LOGGER_ID,
-                _["server_10"].format(err),
+                f"Güncelleme sırasında hata oluştu: {err}",
             )
     else:
         os.system("uv pip install -e .")
         os.system(f"kill -9 {os.getpid()} && python3 -m AloneMusic")
 
 
-# ---------------- RESTART ----------------
-@app.on_message(filters.command(["restart"]) & SUDOERS)
+# ---------------- YENİDEN BAŞLAT ----------------
+@app.on_message(filters.command(["restart", "yenidenbaslat"]) & SUDOERS)
 async def restart_(_, message):
-    response = await message.reply_text("ʀᴇsᴛᴀʀᴛɪɴɢ...")
+    response = await message.reply_text("Yeniden başlatılıyor...")
 
     chats = await get_active_chats()
     for x in chats:
         try:
             await app.send_message(
                 int(x),
-                f"{app.mention} ɪs ʀᴇsᴛᴀʀᴛɪɴɢ...\n\n"
-                "ʏᴏᴜ ᴄᴀɴ sᴛᴀʀᴛ ᴩʟᴀʏɪɴɢ ᴀɢᴀɪɴ "
-                "ᴀғᴛᴇʀ 15-20 sᴇᴄᴏɴᴅs.",
+                f"{app.mention} yeniden başlatılıyor...\n\n"
+                "15-20 saniye sonra tekrar çalmaya "
+                "başlayabilirsiniz.",
             )
             await remove_active_chat(x)
             await remove_active_video_chat(x)
@@ -159,5 +150,5 @@ async def restart_(_, message):
         if os.path.exists(folder):
             shutil.rmtree(folder, ignore_errors=True)
 
-    await response.edit("» ʀᴇsᴛᴀʀᴛ ᴘʀᴏᴄᴇss sᴛᴀʀᴛᴇᴅ, " "ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ ғᴏʀ ғᴇᴡ sᴇᴄᴏɴᴅs...")
+    await response.edit("» Yeniden başlatma işlemi başladı, lütfen bekleyin...")
     os.system(f"kill -9 {os.getpid()} && python3 -m AloneMusic")
