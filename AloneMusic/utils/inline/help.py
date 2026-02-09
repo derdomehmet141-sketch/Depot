@@ -3,15 +3,19 @@
 # All rights reserved.
 
 from typing import Union
+
 from pyrogram import filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
+from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
+                            InlineKeyboardMarkup)
+
 from AloneMusic import app
 
 # --- BUTONLAR VE MENÜLER ---
 
+
 def help_pannel(_, START: Union[bool, int] = None):
     """
-    Ana yardım paneli. 
+    Ana yardım paneli.
     START True ise ayarlardan gelmiştir (Geri butonu gösterilir).
     START None/False ise direkt komutla gelmiştir (Kapat butonu gösterilir).
     """
@@ -22,19 +26,23 @@ def help_pannel(_, START: Union[bool, int] = None):
             InlineKeyboardButton(text=_["H_B_3"], callback_data="help_callback hb3"),
         ],
     ]
-    
+
     # Geri / Kapat mantığı
     if START:
         # Ayarlar menüsüne geri döner
-        buttons.append([
-            InlineKeyboardButton(text=_["BACK_BUTTON"], callback_data="settings_back_helper")
-        ])
+        buttons.append(
+            [
+                InlineKeyboardButton(
+                    text=_["BACK_BUTTON"], callback_data="settings_back_helper"
+                )
+            ]
+        )
     else:
         # Menüyü tamamen kapatır
-        buttons.append([
-            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")
-        ])
-        
+        buttons.append(
+            [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")]
+        )
+
     return InlineKeyboardMarkup(buttons)
 
 
@@ -46,7 +54,7 @@ def help_back_markup(_):
         [
             [
                 InlineKeyboardButton(text=_["BACK_BUTTON"], callback_data="help_back"),
-                InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")
+                InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
             ]
         ]
     )
@@ -63,8 +71,10 @@ def private_help_panel(_):
         ],
     ]
 
+
 # --- GERİ TUŞUNU ÇALIŞTIRAN MANTIK (HANDLER) ---
 # Eğer bu kısım kodunda yoksa geri tuşu asla çalışmaz.
+
 
 @app.on_callback_query(filters.regex("help_back"))
 async def help_back_menu_handler(client, query: CallbackQuery):
@@ -75,9 +85,7 @@ async def help_back_menu_handler(client, query: CallbackQuery):
         # Burada dil desteğini (get_str veya _) çağırman gerekebilir
         # Örnek olarak standart bir 'dil' değişkeni varsayıyoruz
         await query.answer("Ana menüye dönülüyor...")
-        await query.edit_message_reply_markup(
-            reply_markup=help_pannel(_)
-        )
+        await query.edit_message_reply_markup(reply_markup=help_pannel(_))
     except Exception as e:
         print(f"Geri dönerken hata oluştu: {e}")
 
