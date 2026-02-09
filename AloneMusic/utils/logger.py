@@ -1,12 +1,10 @@
 import psutil
 from pyrogram.enums import ParseMode
+
 from AloneMusic import app
-from AloneMusic.utils.database import (
-    get_served_chats,
-    get_active_chats,
-    get_active_video_chats,
-    is_on_off,
-)
+from AloneMusic.utils.database import (get_active_chats,
+                                       get_active_video_chats,
+                                       get_served_chats, is_on_off)
 from config import LOG, LOGGER_ID
 
 
@@ -40,7 +38,11 @@ async def play_logs(message, streamtype):
                 chat_link = "🔗 Link alınamadı"
 
         # Kullanıcı adı kontrolü
-        username = f"@{message.from_user.username}" if message.from_user.username else "🌸 Kullanıcı Adı Yok"
+        username = (
+            f"@{message.from_user.username}"
+            if message.from_user.username
+            else "🌸 Kullanıcı Adı Yok"
+        )
 
         # Tarih formatı
         tarih = message.date.strftime("%d.%m.%Y • %H:%M:%S")

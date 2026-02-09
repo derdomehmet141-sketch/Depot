@@ -1,4 +1,3 @@
-
 import asyncio
 import random
 import string
@@ -54,10 +53,14 @@ async def delete_after_delay(msg):
 @app.on_message(
     filters.command(
         [
-            "play","oynat",
-            "vplay","voynat",
-            "cplay","coynat",
-            "cvplay","cvoynat",
+            "play",
+            "oynat",
+            "vplay",
+            "voynat",
+            "cplay",
+            "coynat",
+            "cvplay",
+            "cvoynat",
             "playforce",
             "vplayforce",
             "cplayforce",
