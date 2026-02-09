@@ -19,7 +19,8 @@ from AloneMusic.utils.inline import help_pannel, private_panel, start_panel
 from config import BANNED_USERS
 from strings import get_string
 
-# --- CALLBACK HANDLER (Geri ve Kapat Tuşu İçin) ---
+# --- CALLBACK HANDLER (Geri ve Kapat Tuşu İşlevleri) ---
+
 @app.on_callback_query(filters.regex(pattern=r"^(settingsback_helper|close)$"))
 async def control_cb(client, query: CallbackQuery):
     callback_data = query.data.strip()
@@ -27,13 +28,16 @@ async def control_cb(client, query: CallbackQuery):
     _ = get_string(language)
 
     if callback_data == "close":
-        await query.message.delete()
-        await query.answer("Menü Kapatıldı", show_alert=False)
+        try:
+            await query.message.delete()
+            await query.answer("Menü Kapatıldı 🗑", show_alert=False)
+        except:
+            await query.answer("Mesaj silinemedi, yetkim olmayabilir.", show_alert=True)
     
     elif callback_data == "settingsback_helper":
         # Geri tuşuna basıldığında ana paneli tekrar yükler
         buttons = private_panel(_)
-        # Kapat butonunu geri dönülen menüye de ekleyelim
+        # Kapat butonunu listenin en altına ekle
         buttons.append([InlineKeyboardButton(text="🗑 Kapat", callback_data="close")])
         
         await query.edit_message_text(
@@ -141,6 +145,7 @@ async def welcome(client, message: Message):
                     return await app.leave_chat(message.chat.id)
 
                 out = start_panel(_)
+                # Bot gruba katıldığında gelen mesaja da Kapat ekle
                 out.append([InlineKeyboardButton(text="🗑 Kapat", callback_data="close")])
                 await message.reply_text(
                     text=_["start_3"].format(
