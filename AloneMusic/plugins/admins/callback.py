@@ -1,5 +1,3 @@
-
-
 import asyncio
 
 from pyrogram import filters
@@ -19,8 +17,7 @@ from AloneMusic.utils.inline import (close_markup, stream_markup,
                                      stream_markup_timer)
 from AloneMusic.utils.stream.autoclear import auto_clean
 from AloneMusic.utils.thumbnails import get_thumb
-from config import (BANNED_USERS, SOUNCLOUD_IMG_URL, STREAM_IMG_URL,
-                    TELEGRAM_AUDIO_URL, TELEGRAM_VIDEO_URL, adminlist,
+from config import (BANNED_USERS, adminlist,
                     confirmer, votemode)
 from strings import get_string
 
@@ -216,7 +213,7 @@ async def del_back_playlist(client, CallbackQuery, _):
             except:
                 return await CallbackQuery.message.reply_text(_["call_6"])
             button = stream_markup(_, chat_id)
-            img = await get_thumb(videoid)
+            await get_thumb(videoid)
             run = await CallbackQuery.message.reply_text(
                 has_spoiler=True,
                 text=_["stream_1"].format(
@@ -252,7 +249,7 @@ async def del_back_playlist(client, CallbackQuery, _):
             except:
                 return await mystic.edit_text(_["call_6"])
             button = stream_markup(_, chat_id)
-            img = await get_thumb(videoid)
+            await get_thumb(videoid)
             run = await CallbackQuery.message.reply_text(
                 has_spoiler=True,
                 text=_["stream_1"].format(
@@ -317,7 +314,7 @@ async def del_back_playlist(client, CallbackQuery, _):
                 db[chat_id][0]["markup"] = "tg"
             else:
                 button = stream_markup(_, chat_id)
-                img = await get_thumb(videoid)
+                await get_thumb(videoid)
                 run = await CallbackQuery.message.reply_text(
                     has_spoiler=True,
                     text=_["stream_1"].format(
@@ -360,7 +357,7 @@ async def markup_timer():
                     language = await get_lang(chat_id)
                     _ = get_string(language)
                 except:
-                    _ = get_string("tr") # Varsayılan dil Türkçeye çekildi
+                    _ = get_string("tr")  # Varsayılan dil Türkçeye çekildi
                 try:
                     buttons = stream_markup_timer(
                         _,
