@@ -35,7 +35,8 @@ def private_panel(_):
         ],
         [
             InlineKeyboardButton(text=_["S_B_2"], callback_data="shiv_aarumi"),
-            
+            # Sahip (Owner) Butonu Buraya Eklendi
+            InlineKeyboardButton(text="👤 Sahip", url=f"tg://user?id={config.OWNER_ID[0]}")
         ],
         [InlineKeyboardButton(text=_["S_B_4"], callback_data="settings_back_helper")],
     ]
