@@ -28,6 +28,7 @@ def private_panel(_):
 
     buttons = [
         [
+            # Gruba Ekle Butonu
             InlineKeyboardButton(
                 text=_["S_B_3"],
                 url=f"https://t.me/{app.username}?startgroup=true",
@@ -37,12 +38,16 @@ def private_panel(_):
             # Destek Grubu Butonu
             InlineKeyboardButton(text=_["S_B_2"], url=config.SUPPORT_CHAT),
             
-            # Sahip Butonu - user_id ile en hızlı, direkt açılış
+            # Sahip Butonu
             InlineKeyboardButton(text="𝐒ᴀʜіʙі ˼", user_id=owner_id)
         ],
         [
-            # Yardım/Menü Butonu
+            # Yardım/Menü Butonu (Geri işlevi için)
             InlineKeyboardButton(text=_["S_B_4"], callback_data="settings_back_helper")
+        ],
+        [
+            # Kapat Butonu (Mesajı temizlemek için)
+            InlineKeyboardButton(text="🗑️ Kapat", callback_data="close")
         ],
     ]
     return buttons
