@@ -8,10 +8,8 @@
 # All rights reserved.
 
 from pyrogram.types import InlineKeyboardButton
-
 import config
 from AloneMusic import app
-
 
 def start_panel(_):
     buttons = [
@@ -24,12 +22,10 @@ def start_panel(_):
     ]
     return buttons
 
-
 def private_panel(_):
-    # OWNER_ID'yi config'den alıyoruz
-    # Eğer config içinde liste halindeyse ilkini alır, değilse direkt id'yi kullanır
+    # Hata koruması: OWNER_ID liste ise ilkini al, değilse direkt kullan
     owner_id = config.OWNER_ID[0] if isinstance(config.OWNER_ID, list) else config.OWNER_ID
-    
+
     buttons = [
         [
             InlineKeyboardButton(
@@ -38,11 +34,14 @@ def private_panel(_):
             )
         ],
         [
-            InlineKeyboardButton(text=_["S_B_2"], callback_data="shiv_aarumi"),
-            # Dinamik Sahip Butonu
-            InlineKeyboardButton(text="👤 Sahip", url=f"tg://user?id={owner_id}")
+            # Destek Grubu Butonu
+            InlineKeyboardButton(text=_["S_B_2"], url=config.SUPPORT_CHAT),
+            
+            # Sahip Butonu - user_id ile en hızlı, direkt açılış
+            InlineKeyboardButton(text="𝐒ᴀʜіʙі ˼", user_id=owner_id)
         ],
         [
+            # Yardım/Menü Butonu
             InlineKeyboardButton(text=_["S_B_4"], callback_data="settings_back_helper")
         ],
     ]
