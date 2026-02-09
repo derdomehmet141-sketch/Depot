@@ -6,7 +6,6 @@
 #
 # All rights reserved.
 
-import random
 import time
 
 from py_yt import VideosSearch
@@ -34,15 +33,16 @@ EFFECT_ID = [
     5159385139981059251,
 ]
 
+
 @app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
 async def start_pm(client, message: Message, _):
     await add_served_user(message.from_user.id)
     await message.react("🍓")
-    
+
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
-        
+
         # Help Paneli
         if name[0:4] == "help":
             keyboard = help_pannel(_)
@@ -50,7 +50,7 @@ async def start_pm(client, message: Message, _):
                 text=_["help_1"].format(config.SUPPORT_CHAT),
                 reply_markup=keyboard,
             )
-            
+
         # Sudo Listesi
         if name[0:3] == "sud":
             await sudoers_list(client=client, message=message, _=_)
@@ -60,7 +60,7 @@ async def start_pm(client, message: Message, _):
                     text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <b>sᴜᴅᴏʟɪsᴛ</b>.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
                 )
             return
-            
+
         # Bilgi Paneli (YouTube Info)
         if name[0:3] == "inf":
             m = await message.reply_text("🔎")
@@ -75,7 +75,7 @@ async def start_pm(client, message: Message, _):
                 channel = result["channel"]["name"]
                 link = result["link"]
                 published = result["publishedTime"]
-                
+
             searched_text = _["start_6"].format(
                 title, duration, views, published, channellink, channel, app.mention
             )
@@ -89,9 +89,7 @@ async def start_pm(client, message: Message, _):
             )
             await m.delete()
             await message.reply_text(
-                text=searched_text,
-                reply_markup=key,
-                disable_web_page_preview=False
+                text=searched_text, reply_markup=key, disable_web_page_preview=False
             )
             if await is_on_off(2):
                 return await app.send_message(
@@ -111,6 +109,7 @@ async def start_pm(client, message: Message, _):
                 text=f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ.\n\n<b>ᴜsᴇʀ ɪᴅ :</b> <code>{message.from_user.id}</code>\n<b>ᴜsᴇʀɴᴀᴍᴇ :</b> @{message.from_user.username}",
             )
 
+
 @app.on_message(filters.command(["start"]) & filters.group & ~BANNED_USERS)
 @LanguageStart
 async def start_gp(client, message: Message, _):
@@ -122,26 +121,27 @@ async def start_gp(client, message: Message, _):
     )
     return await add_served_chat(message.chat.id)
 
+
 @app.on_message(filters.new_chat_members, group=-1)
 async def welcome(client, message: Message):
     for member in message.new_chat_members:
         try:
             language = await get_lang(message.chat.id)
             _ = get_string(language)
-            
+
             # Yasaklı kullanıcı kontrolü
             if await is_banned_user(member.id):
                 try:
                     await message.chat.ban_member(member.id)
                 except:
                     pass
-            
+
             # Botun kendisi gruba katıldığında
             if member.id == app.id:
                 if message.chat.type != ChatType.SUPERGROUP:
                     await message.reply_text(_["start_4"])
                     return await app.leave_chat(message.chat.id)
-                
+
                 if message.chat.id in await blacklisted_chats():
                     await message.reply_text(
                         _["start_5"].format(
