@@ -8,24 +8,27 @@
 # All rights reserved.
 
 from typing import Union
+
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
 from AloneMusic import app
+
 
 def help_pannel(_, START: Union[bool, int] = None):
     # Kapat butonu (Eğer direkt yardım menüsündeyse)
     first = [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")]
-    
+
     # Geri butonu (Eğer ayarlar üzerinden geldiyse)
     second = [
         InlineKeyboardButton(
             text=_["BACK_BUTTON"],
-            callback_data="settings_back_helper", # Yazım hatası düzeltildi
+            callback_data="settings_back_helper",  # Yazım hatası düzeltildi
         ),
     ]
-    
+
     # START parametresine göre hangi alt butonun gösterileceği seçilir
     mark = second if START else first
-    
+
     upl = InlineKeyboardMarkup(
         [
             [
