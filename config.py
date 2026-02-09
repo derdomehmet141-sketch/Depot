@@ -1,10 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
-#
-# This file is part of < https://github.com/TheAloneTeam/TheAloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/TheAloneMusic/blob/master/LICENSE >
-# All rights reserved.
 
 import re
 from os import getenv
@@ -13,6 +6,9 @@ from dotenv import load_dotenv
 from pyrogram import filters
 
 load_dotenv()
+API_URL = getenv("API_URL", 'https://pytdbotapi.thequickearn.xyz') #youtube song url
+VIDEO_API_URL = getenv("VIDEO_API_URL", None)
+API_KEY = getenv("API_KEY", 'NxGBNexGenBots790d34') # youtube song api key, generate free key or buy paid plan from panel.thequickearn.xyz
 
 # Get this value from my.telegram.org/apps
 API_ID = int(getenv("API_ID", "21194358"))
