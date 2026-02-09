@@ -1,11 +1,11 @@
 #
 # Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
 #
-# This file is part of < https://github.com/TheAloneTeam/AloneMusic > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
+# Bu dosya < https://github.com/TheAloneTeam/AloneMusic > projesinin bir parçasıdır,
+# ve "GNU v3.0 Lisans Sözleşmesi" kapsamında yayınlanmıştır.
+# Lütfen bkz. < https://github.com/TheAloneTeam/AloneMusic/blob/master/LICENSE >
 #
-# All rights reserved.
+# Tüm hakları saklıdır.
 
 import asyncio
 
@@ -22,10 +22,10 @@ from AloneMusic.utils.decorators.language import language
 from AloneMusic.utils.formatters import alpha_to_int
 from config import adminlist
 
-IS_BROADCASTING = False
+IS_BROADCASTING = False # Yayın durumu kontrolü
 
 
-@app.on_message(filters.command("broadcast") & SUDOERS)
+@app.on_message(filters.command("broadcast","reklam") & SUDOERS)
 @language
 async def braodcast_message(client, message, _):
     global IS_BROADCASTING
@@ -36,6 +36,7 @@ async def braodcast_message(client, message, _):
         if len(message.command) < 2:
             return await message.reply_text(_["broad_2"])
         query = message.text.split(None, 1)[1]
+        # Parametrelerin temizlenmesi
         if "-pin" in query:
             query = query.replace("-pin", "")
         if "-nobot" in query:
@@ -54,6 +55,7 @@ async def braodcast_message(client, message, _):
     IS_BROADCASTING = True
     await message.reply_text(_["broad_1"])
 
+    # Bot üzerinden sohbetlere duyuru
     if "-nobot" not in message.text:
         sent = 0
         pin = 0
@@ -113,12 +115,12 @@ async def braodcast_message(client, message, _):
                 continue
         try:
             await message.reply_text(
-                f"» ʙʀᴏᴀᴅᴄᴀsᴛᴇᴅ ᴍᴇssᴀɢᴇ ᴛᴏ {sent} ᴄʜᴀᴛs ᴡɪᴛʜ {pin} ᴘɪɴs ғʀᴏᴍ ᴛʜᴇ ʙᴏᴛ."
+                f"» Duyuru {sent} sohbete gönderildi ve {pin} kez sabitlendi."
             )
         except:
             pass
 
-    # Bot broadcasting to users
+    # Bot üzerinden kullanıcılara duyuru (Özel Mesaj)
     if "-user" in message.text:
         susr = 0
         served_users = []
@@ -152,10 +154,11 @@ async def braodcast_message(client, message, _):
             except:
                 continue
         try:
-            await message.reply_text(f"» ʙʀᴏᴀᴅᴄᴀsᴛᴇᴅ ᴍᴇssᴀɢᴇ ᴛᴏ {susr} ᴜsᴇʀs.")
+            await message.reply_text(f"» Duyuru {susr} kullanıcıya iletildi.")
         except:
             pass
 
+    # Asistan hesapları üzerinden duyuru
     if "-assistant" in message.text:
         aw = await message.reply_text(_["broad_5"])
         text = _["broad_6"]
@@ -189,6 +192,7 @@ async def braodcast_message(client, message, _):
 
 
 async def auto_clean():
+    """Yönetici listesini her 10 saniyede bir güncelleyen döngü."""
     while not await asyncio.sleep(10):
         try:
             served_chats = await get_active_chats()
@@ -207,5 +211,5 @@ async def auto_clean():
         except:
             continue
 
-
+# Arka plan görevini başlat
 asyncio.create_task(auto_clean())
