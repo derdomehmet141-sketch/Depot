@@ -1,4 +1,3 @@
-
 import re
 from os import getenv
 
@@ -6,13 +5,15 @@ from dotenv import load_dotenv
 from pyrogram import filters
 
 load_dotenv()
-API_URL = getenv("API_URL", 'https://pytdbotapi.thequickearn.xyz') #youtube song url
+API_URL = getenv("API_URL", "https://pytdbotapi.thequickearn.xyz")  # youtube song url
 VIDEO_API_URL = getenv("VIDEO_API_URL", None)
-API_KEY = getenv("API_KEY", 'NxGBNexGenBots790d34') # youtube song api key, generate free key or buy paid plan from panel.thequickearn.xyz
+API_KEY = getenv(
+    "API_KEY", "NxGBNexGenBots790d34"
+)  # youtube song api key, generate free key or buy paid plan from panel.thequickearn.xyz
 
 # Get this value from my.telegram.org/apps
 API_ID = int(getenv("API_ID", "21194358"))
-API_HASH = getenv("API_HASH","9623f07eca023e4e3c561c966513a642")
+API_HASH = getenv("API_HASH", "9623f07eca023e4e3c561c966513a642")
 
 # Get your token from @BotFather on Telegram.
 BOT_TOKEN = getenv("BOT_TOKEN")
@@ -26,11 +27,11 @@ DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 600))
 ADS_MODE = getenv("ADS_MODE", None)
 
 # Chat id of a group for logging bot's activities
-LOGGER_ID = int(getenv("LOGGER_ID",-1003765310635 ))
-LOG=-1003765310635
+LOGGER_ID = int(getenv("LOGGER_ID", -1003765310635))
+LOG = -1003765310635
 DEBUG_IGNORE_LOG = True
 # Get this value from  on Telegram by /id
-OWNER_ID = int(getenv("OWNER_ID",8304498845 ))
+OWNER_ID = int(getenv("OWNER_ID", 8304498845))
 
 ## Fill these variables if you're deploying on heroku.
 # Your heroku app name
