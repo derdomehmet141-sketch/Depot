@@ -1,4 +1,3 @@
-
 import os
 from random import randint
 from typing import Union
@@ -14,7 +13,6 @@ from AloneMusic.utils.exceptions import AssistantErr
 from AloneMusic.utils.inline import aq_markup, close_markup, stream_markup
 from AloneMusic.utils.pastebin import AloneBin
 from AloneMusic.utils.stream.queue import put_queue, put_queue_index
-from AloneMusic.utils.thumbnails import get_thumb
 
 
 async def stream(
