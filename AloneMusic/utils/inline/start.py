@@ -26,6 +26,10 @@ def start_panel(_):
 
 
 def private_panel(_):
+    # OWNER_ID'yi config'den alıyoruz
+    # Eğer config içinde liste halindeyse ilkini alır, değilse direkt id'yi kullanır
+    owner_id = config.OWNER_ID[0] if isinstance(config.OWNER_ID, list) else config.OWNER_ID
+    
     buttons = [
         [
             InlineKeyboardButton(
@@ -35,9 +39,11 @@ def private_panel(_):
         ],
         [
             InlineKeyboardButton(text=_["S_B_2"], callback_data="shiv_aarumi"),
-            # Sahip (Owner) Butonu Buraya Eklendi
-            InlineKeyboardButton(text="👤 Sahip", url=f"tg://user?id={config.OWNER_ID[0]}")
+            # Dinamik Sahip Butonu
+            InlineKeyboardButton(text="👤 Sahip", url=f"tg://user?id={owner_id}")
         ],
-        [InlineKeyboardButton(text=_["S_B_4"], callback_data="settings_back_helper")],
+        [
+            InlineKeyboardButton(text=_["S_B_4"], callback_data="settings_back_helper")
+        ],
     ]
     return buttons
