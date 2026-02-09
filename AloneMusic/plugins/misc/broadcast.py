@@ -25,7 +25,7 @@ from config import adminlist
 IS_BROADCASTING = False # Yayın durumu kontrolü
 
 
-@app.on_message(filters.command("broadcast","reklam") & SUDOERS)
+@app.on_message(filters.command("broadcast") & SUDOERS)
 @language
 async def braodcast_message(client, message, _):
     global IS_BROADCASTING
