@@ -10,7 +10,7 @@ from time import time
 
 from pyrogram import filters
 from pyrogram.enums import ChatType
-from pyrogram.errors import MessageNotModified
+from pyrogram.errors import MessageNotModified, PeerIdInvalid
 from pyrogram.types import (CallbackQuery, InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
 
@@ -33,7 +33,7 @@ from config import BANNED_USERS, OWNER_ID
 
 
 @app.on_message(
-    filters.command(["settings", "setting"]) & filters.group & ~BANNED_USERS
+    filters.command(["settings", "setting", "ayarlar"]) & filters.group & ~BANNED_USERS
 )
 @language
 async def settings_mar(client, message: Message, _):
@@ -68,15 +68,15 @@ async def show_bot_info(c: app, q: CallbackQuery):
     x = await c.send_message(q.message.chat.id, "ᴘɪɴɢ ᴘᴏɴɢ 💕..")
     delta_ping = time() - start
     await x.delete()
-    txt = f"""💌 ᴘɪɴɢ ᴘᴏɴɢ ʙᴀʙʏ...
+    txt = f"""💌 ᴘɪɴɢ ᴘᴏɴɢ ʙᴇʙᴇĞɪᴍ...
 
-• ᴅᴀᴛᴀʙᴀsᴇ: ᴏɴʟɪɴᴇ
-• ʏᴏᴜᴛᴜʙᴇ ᴀᴘɪ: ʀᴇsᴘᴏɴsɪᴠᴇ
-• ʙᴏᴛ sᴇʀᴠᴇʀ: ʀᴜɴɴɪɴɢ sᴍᴏᴏᴛʜʟʏ
-• ʀᴇsᴘᴏɴsᴇ ᴛɪᴍᴇ: ᴏᴘᴛɪᴍᴀʟ
+• ᴠᴇʀɪᴛᴀʙᴀɴı: ᴀᴋᴛɪғ
+• ʏᴏᴜᴛᴜʙᴇ ᴀᴘɪ: ʏᴀɴıᴛ ᴠᴇʀɪʏᴏʀ
+• ʙᴏᴛ sᴜɴᴜᴄᴜsᴜ: sᴏʀᴜɴsᴜᴢ
+• ʏᴀɴıᴛ süʀᴇsɪ: ᴏᴘᴛɪᴍᴀʟ
 • ᴀᴘɪ ᴘɪɴɢ: {delta_ping * 1000:.3f} ms   
 
-• ᴇᴠᴇʀʏᴛʜɪɴɢ ʟᴏᴏᴋs ɢᴏᴏᴅ!
+• ʜᴇʀ sᴇʏ ʜᴀʀɪᴋᴀ ɢöʀüɴüʏᴏʀ!
 """
     await q.answer(txt, show_alert=True)
     return
@@ -86,19 +86,19 @@ async def show_bot_info(c: app, q: CallbackQuery):
 @languageCB
 async def support(client, CallbackQuery, _):
     await CallbackQuery.edit_message_text(
-        text="ʜᴇʀᴇ ᴀʀᴇ ꜱᴏᴍᴇ ɪᴍᴘᴏʀᴛᴀɴᴛ ʟɪɴᴋꜱ.",
+        text="ᴀşᴀğıᴅᴀ ʙᴀᴢı öɴᴇᴍʟɪ ʙᴀğʟᴀɴᴛıʟᴀʀ ʙᴜʟᴜɴᴍᴀᴋᴛᴀᴅıʀ.",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(text="ᴅᴇᴠs", user_id=config.OWNER_ID),
+                    InlineKeyboardButton(text="sᴀʜɪᴘ", user_id=config.OWNER_ID),
                 ],
                 [
-                    InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", url=config.SUPPORT_CHAT),
-                    InlineKeyboardButton(text="ᴄʜᴀɴɴᴇʟ", url=config.SUPPORT_CHANNEL),
+                    InlineKeyboardButton(text="ᴅᴇsᴛᴇᴋ", url=config.SUPPORT_CHAT),
+                    InlineKeyboardButton(text="ᴋᴀɴᴀʟ", url=config.SUPPORT_CHANNEL),
                 ],
                 [
                     InlineKeyboardButton(
-                        text="ʙᴀᴄᴋ", callback_data="settingsback_helper"
+                        text="ɢᴇʀɪ", callback_data="settingsback_helper"
                     )
                 ],
             ]
@@ -114,7 +114,11 @@ async def settings_back_markup(client, CallbackQuery: CallbackQuery, _):
     except:
         pass
     if CallbackQuery.message.chat.type == ChatType.PRIVATE:
-        await app.resolve_peer(OWNER_ID)
+        try:
+            await app.resolve_peer(OWNER_ID)
+        except PeerIdInvalid:
+            pass
+        
         buttons = private_panel(_)
         return await CallbackQuery.edit_message_text(
             _["start_2"].format(CallbackQuery.from_user.mention, app.mention),
@@ -405,7 +409,6 @@ async def authusers_mar(client, CallbackQuery, _):
 @app.on_callback_query(filters.regex("VOMODECHANGE") & ~BANNED_USERS)
 @ActualAdminCB
 async def vote_change(client, CallbackQuery, _):
-    CallbackQuery.matches[0].group(1)
     try:
         await CallbackQuery.answer(_["set_cb_3"], show_alert=True)
     except:
