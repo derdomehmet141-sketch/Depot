@@ -86,4 +86,3 @@ HELP_3 = """<b>🎮 𝙀𝙏İ𝙆𝙀𝙏 & 𝙀Ğ𝙇𝙀𝙉𝘾𝙀 𝙆𝙊
 ❤️  /d             - Doğruluk oyunu başlatır  
 🔥  /c             - Cesaret oyunu başlatır
 """
-
