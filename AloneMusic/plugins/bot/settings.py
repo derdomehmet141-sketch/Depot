@@ -118,7 +118,7 @@ async def settings_back_markup(client, CallbackQuery: CallbackQuery, _):
             await app.resolve_peer(OWNER_ID)
         except PeerIdInvalid:
             pass
-        
+
         buttons = private_panel(_)
         return await CallbackQuery.edit_message_text(
             _["start_2"].format(CallbackQuery.from_user.mention, app.mention),
