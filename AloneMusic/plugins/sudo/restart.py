@@ -1,4 +1,3 @@
-
 import asyncio
 import os
 import shutil
@@ -40,9 +39,13 @@ async def log_(client, message, _):
 async def update_(client, message, _):
     if await is_heroku():
         if HAPP is None:
-            return await message.reply_text("Heroku yapılandırması eksik, güncelleme yapılamıyor.")
+            return await message.reply_text(
+                "Heroku yapılandırması eksik, güncelleme yapılamıyor."
+            )
 
-    response = await message.reply_text("Güncellemeler kontrol ediliyor, lütfen bekleyin...")
+    response = await message.reply_text(
+        "Güncellemeler kontrol ediliyor, lütfen bekleyin..."
+    )
 
     try:
         repo = Repo(search_parent_directories=True)
@@ -102,7 +105,9 @@ async def update_(client, message, _):
             except:
                 pass
 
-        await response.edit(f"{final_text}\n\nBot başarıyla güncellendi! Yeniden başlatılıyor...")
+        await response.edit(
+            f"{final_text}\n\nBot başarıyla güncellendi! Yeniden başlatılıyor..."
+        )
     except:
         pass
 
