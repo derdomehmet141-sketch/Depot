@@ -79,12 +79,11 @@ def stream_markup_timer(_, chat_id, played, dur):
         ],
         [
             InlineKeyboardButton(
-                text="➕ ɢʀᴜʙᴀ ᴇᴋʟᴇ", 
-                url=f"https://t.me/{app.username}?startgroup=true"
+                text="✨ 𝐁єηі 𝐆ʀσυвυηα 𝐄ᴋʟє ✨", url=f"https://t.me/{app.username}?startgroup=true"
             ),
             InlineKeyboardButton(
-                text="👤 sᴀʜɪᴘ", 
-                url=f"https://t.me/Fevzican38" # <--- BURAYI DEGISTIR
+                text="˹ 𝐃єѕᴛєᴋ ˼",
+                url=f"https://t.me/The_Team_Kumsal" # <--- BURAYI DEGISTIR
             ),
         ],
         [InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="close")],
