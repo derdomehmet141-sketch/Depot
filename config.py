@@ -1,3 +1,10 @@
+#
+# Copyright (C) 2021-2022 by TheAloneteam@Github, < https://github.com/TheAloneTeam >.
+#
+# This file is part of < https://github.com/TheAloneTeam/TheAloneMusic > project,
+# and is released under the "GNU v3.0 License Agreement".
+# Please see < https://github.com/TheAloneTeam/TheAloneMusic/blob/master/LICENSE >
+# All rights reserved.
 
 import re
 from os import getenv
@@ -6,13 +13,10 @@ from dotenv import load_dotenv
 from pyrogram import filters
 
 load_dotenv()
-API_URL = getenv("API_URL", 'https://pytdbotapi.thequickearn.xyz') #youtube song url
-VIDEO_API_URL = getenv("VIDEO_API_URL", None)
-API_KEY = getenv("API_KEY", 'NxGBNexGenBots790d34') # youtube song api key, generate free key or buy paid plan from panel.thequickearn.xyz
 
 # Get this value from my.telegram.org/apps
-API_ID = int(getenv("API_ID", "21194358"))
-API_HASH = getenv("API_HASH","9623f07eca023e4e3c561c966513a642")
+API_ID = int(getenv("API_ID", 0))
+API_HASH = getenv("API_HASH")
 
 # Get your token from @BotFather on Telegram.
 BOT_TOKEN = getenv("BOT_TOKEN")
@@ -26,11 +30,11 @@ DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 600))
 ADS_MODE = getenv("ADS_MODE", None)
 
 # Chat id of a group for logging bot's activities
-LOGGER_ID = int(getenv("LOGGER_ID",-1003356677341 ))
-LOG=2
+LOGGER_ID = int(getenv("LOGGER_ID", 0))
+
 DEBUG_IGNORE_LOG = True
 # Get this value from  on Telegram by /id
-OWNER_ID = int(getenv("OWNER_ID",8304498845 ))
+OWNER_ID = int(getenv("OWNER_ID", 8106551502))
 
 ## Fill these variables if you're deploying on heroku.
 # Your heroku app name
@@ -47,8 +51,8 @@ GIT_TOKEN = getenv(
     "GIT_TOKEN", None
 )  # Fill this variable if your upstream repository is private
 
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/sohbetefsane1")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/sohbetefsane1")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/TheAloneTeam")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/TheTeamAlone")
 
 # Set this to True if you want the assistant to automatically leave chats after an interval
 AUTO_LEAVING_ASSISTANT = bool(getenv("AUTO_LEAVING_ASSISTANT", None))
@@ -87,11 +91,11 @@ confirmer = {}
 
 START_IMG_URL = getenv(
     "START_IMG_URL",
-    "https://files.catbox.moe/34xlvu.jpg",
+    "https://ibb.co/0jsDgHSj",
 )
 PING_IMG_URL = getenv(
     "PING_IMG_URL",
-    "https://files.catbox.moe/34xlvu.jpg",
+    "https://ibb.co/0jsDgHSj",
 )
 PLAYLIST_IMG_URL = "https://files.catbox.moe/34xlvu.jpg"
 STATS_IMG_URL = "https://files.catbox.moe/34xlvu.jpg"
