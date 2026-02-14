@@ -8,9 +8,12 @@
 # All rights reserved.
 
 import math
+
 from pyrogram.types import InlineKeyboardButton
+
 from AloneMusic import app
 from AloneMusic.utils.formatters import time_to_seconds
+
 
 def track_markup(_, videoid, user_id, channel, fplay):
     buttons = [
@@ -26,6 +29,7 @@ def track_markup(_, videoid, user_id, channel, fplay):
         ],
     ]
     return buttons
+
 
 def stream_markup_timer(_, chat_id, played, dur):
     played_sec = time_to_seconds(played)
@@ -79,16 +83,18 @@ def stream_markup_timer(_, chat_id, played, dur):
         ],
         [
             InlineKeyboardButton(
-                text="✨ 𝐁єηі 𝐆ʀσυвυηα 𝐄ᴋʟє ✨", url=f"https://t.me/{app.username}?startgroup=true"
+                text="✨ 𝐁єηі 𝐆ʀσυвυηα 𝐄ᴋʟє ✨",
+                url=f"https://t.me/{app.username}?startgroup=true",
             ),
             InlineKeyboardButton(
                 text="˹ 𝐃єѕᴛєᴋ ˼",
-                url=f"https://t.me/The_Team_Kumsal" # <--- BURAYI DEGISTIR
+                url="https://t.me/The_Team_Kumsal",  # <--- BURAYI DEGISTIR
             ),
         ],
         [InlineKeyboardButton(text="ᴄʟᴏsᴇ", callback_data="close")],
     ]
     return buttons
+
 
 def stream_markup(_, chat_id):
     buttons = [
@@ -101,13 +107,13 @@ def stream_markup(_, chat_id):
         ],
         [
             InlineKeyboardButton(
-                text="➕ ɢʀᴜʙᴀ ᴇᴋʟᴇ", 
-                url=f"https://t.me/{app.username}?startgroup=true"
+                text="➕ ɢʀᴜʙᴀ ᴇᴋʟᴇ", url=f"https://t.me/{app.username}?startgroup=true"
             )
         ],
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
     ]
     return buttons
+
 
 def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
     buttons = [
@@ -130,6 +136,7 @@ def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
     ]
     return buttons
 
+
 def livestream_markup(_, videoid, user_id, mode, channel, fplay):
     buttons = [
         [
@@ -146,6 +153,7 @@ def livestream_markup(_, videoid, user_id, mode, channel, fplay):
         ],
     ]
     return buttons
+
 
 def slider_markup(_, videoid, user_id, query, query_type, channel, fplay):
     query = f"{query[:20]}"
