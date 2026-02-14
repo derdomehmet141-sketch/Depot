@@ -22,7 +22,7 @@ from AloneMusic.utils.decorators.language import language
 from AloneMusic.utils.formatters import alpha_to_int
 from config import adminlist
 
-IS_BROADCASTING = False # Yayın durumu kontrolü
+IS_BROADCASTING = False  # Yayın durumu kontrolü
 
 
 @app.on_message(filters.command("broadcast") & SUDOERS)
@@ -210,6 +210,7 @@ async def auto_clean():
                         adminlist[chat_id].append(user_id)
         except:
             continue
+
 
 # Arka plan görevini başlat
 asyncio.create_task(auto_clean())
